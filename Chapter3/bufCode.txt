@@ -1,0 +1,1546 @@
+
+buf:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000000580 <_init>:
+ 580:	48 83 ec 08          	sub    $0x8,%rsp
+ 584:	48 8b 05 5d 2a 20 00 	mov    0x202a5d(%rip),%rax        # 202fe8 <__gmon_start__>
+ 58b:	48 85 c0             	test   %rax,%rax
+ 58e:	74 02                	je     592 <_init+0x12>
+ 590:	ff d0                	callq  *%rax
+ 592:	48 83 c4 08          	add    $0x8,%rsp
+ 596:	c3                   	retq   
+
+Disassembly of section .plt:
+
+00000000000005a0 <.plt>:
+ 5a0:	ff 35 0a 2a 20 00    	pushq  0x202a0a(%rip)        # 202fb0 <_GLOBAL_OFFSET_TABLE_+0x8>
+ 5a6:	ff 25 0c 2a 20 00    	jmpq   *0x202a0c(%rip)        # 202fb8 <_GLOBAL_OFFSET_TABLE_+0x10>
+ 5ac:	0f 1f 40 00          	nopl   0x0(%rax)
+
+00000000000005b0 <puts@plt>:
+ 5b0:	ff 25 0a 2a 20 00    	jmpq   *0x202a0a(%rip)        # 202fc0 <puts@GLIBC_2.2.5>
+ 5b6:	68 00 00 00 00       	pushq  $0x0
+ 5bb:	e9 e0 ff ff ff       	jmpq   5a0 <.plt>
+
+00000000000005c0 <__stack_chk_fail@plt>:
+ 5c0:	ff 25 02 2a 20 00    	jmpq   *0x202a02(%rip)        # 202fc8 <__stack_chk_fail@GLIBC_2.4>
+ 5c6:	68 01 00 00 00       	pushq  $0x1
+ 5cb:	e9 d0 ff ff ff       	jmpq   5a0 <.plt>
+
+00000000000005d0 <gets@plt>:
+ 5d0:	ff 25 fa 29 20 00    	jmpq   *0x2029fa(%rip)        # 202fd0 <gets@GLIBC_2.2.5>
+ 5d6:	68 02 00 00 00       	pushq  $0x2
+ 5db:	e9 c0 ff ff ff       	jmpq   5a0 <.plt>
+
+Disassembly of section .plt.got:
+
+00000000000005e0 <__cxa_finalize@plt>:
+ 5e0:	ff 25 12 2a 20 00    	jmpq   *0x202a12(%rip)        # 202ff8 <__cxa_finalize@GLIBC_2.2.5>
+ 5e6:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+00000000000005f0 <_start>:
+     5f0:	31 ed                	xor    %ebp,%ebp
+     5f2:	49 89 d1             	mov    %rdx,%r9
+     5f5:	5e                   	pop    %rsi
+     5f6:	48 89 e2             	mov    %rsp,%rdx
+     5f9:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+     5fd:	50                   	push   %rax
+     5fe:	54                   	push   %rsp
+     5ff:	4c 8d 05 fa 20 00 00 	lea    0x20fa(%rip),%r8        # 2700 <__libc_csu_fini>
+     606:	48 8d 0d 83 20 00 00 	lea    0x2083(%rip),%rcx        # 2690 <__libc_csu_init>
+     60d:	48 8d 3d 5d 20 00 00 	lea    0x205d(%rip),%rdi        # 2671 <main>
+     614:	ff 15 c6 29 20 00    	callq  *0x2029c6(%rip)        # 202fe0 <__libc_start_main@GLIBC_2.2.5>
+     61a:	f4                   	hlt    
+     61b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000000620 <deregister_tm_clones>:
+     620:	48 8d 3d e9 29 20 00 	lea    0x2029e9(%rip),%rdi        # 203010 <__TMC_END__>
+     627:	55                   	push   %rbp
+     628:	48 8d 05 e1 29 20 00 	lea    0x2029e1(%rip),%rax        # 203010 <__TMC_END__>
+     62f:	48 39 f8             	cmp    %rdi,%rax
+     632:	48 89 e5             	mov    %rsp,%rbp
+     635:	74 19                	je     650 <deregister_tm_clones+0x30>
+     637:	48 8b 05 9a 29 20 00 	mov    0x20299a(%rip),%rax        # 202fd8 <_ITM_deregisterTMCloneTable>
+     63e:	48 85 c0             	test   %rax,%rax
+     641:	74 0d                	je     650 <deregister_tm_clones+0x30>
+     643:	5d                   	pop    %rbp
+     644:	ff e0                	jmpq   *%rax
+     646:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+     64d:	00 00 00 
+     650:	5d                   	pop    %rbp
+     651:	c3                   	retq   
+     652:	0f 1f 40 00          	nopl   0x0(%rax)
+     656:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+     65d:	00 00 00 
+
+0000000000000660 <register_tm_clones>:
+     660:	48 8d 3d a9 29 20 00 	lea    0x2029a9(%rip),%rdi        # 203010 <__TMC_END__>
+     667:	48 8d 35 a2 29 20 00 	lea    0x2029a2(%rip),%rsi        # 203010 <__TMC_END__>
+     66e:	55                   	push   %rbp
+     66f:	48 29 fe             	sub    %rdi,%rsi
+     672:	48 89 e5             	mov    %rsp,%rbp
+     675:	48 c1 fe 03          	sar    $0x3,%rsi
+     679:	48 89 f0             	mov    %rsi,%rax
+     67c:	48 c1 e8 3f          	shr    $0x3f,%rax
+     680:	48 01 c6             	add    %rax,%rsi
+     683:	48 d1 fe             	sar    %rsi
+     686:	74 18                	je     6a0 <register_tm_clones+0x40>
+     688:	48 8b 05 61 29 20 00 	mov    0x202961(%rip),%rax        # 202ff0 <_ITM_registerTMCloneTable>
+     68f:	48 85 c0             	test   %rax,%rax
+     692:	74 0c                	je     6a0 <register_tm_clones+0x40>
+     694:	5d                   	pop    %rbp
+     695:	ff e0                	jmpq   *%rax
+     697:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+     69e:	00 00 
+     6a0:	5d                   	pop    %rbp
+     6a1:	c3                   	retq   
+     6a2:	0f 1f 40 00          	nopl   0x0(%rax)
+     6a6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+     6ad:	00 00 00 
+
+00000000000006b0 <__do_global_dtors_aux>:
+     6b0:	80 3d 59 29 20 00 00 	cmpb   $0x0,0x202959(%rip)        # 203010 <__TMC_END__>
+     6b7:	75 2f                	jne    6e8 <__do_global_dtors_aux+0x38>
+     6b9:	48 83 3d 37 29 20 00 	cmpq   $0x0,0x202937(%rip)        # 202ff8 <__cxa_finalize@GLIBC_2.2.5>
+     6c0:	00 
+     6c1:	55                   	push   %rbp
+     6c2:	48 89 e5             	mov    %rsp,%rbp
+     6c5:	74 0c                	je     6d3 <__do_global_dtors_aux+0x23>
+     6c7:	48 8b 3d 3a 29 20 00 	mov    0x20293a(%rip),%rdi        # 203008 <__dso_handle>
+     6ce:	e8 0d ff ff ff       	callq  5e0 <__cxa_finalize@plt>
+     6d3:	e8 48 ff ff ff       	callq  620 <deregister_tm_clones>
+     6d8:	c6 05 31 29 20 00 01 	movb   $0x1,0x202931(%rip)        # 203010 <__TMC_END__>
+     6df:	5d                   	pop    %rbp
+     6e0:	c3                   	retq   
+     6e1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+     6e8:	f3 c3                	repz retq 
+     6ea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+00000000000006f0 <frame_dummy>:
+     6f0:	55                   	push   %rbp
+     6f1:	48 89 e5             	mov    %rsp,%rbp
+     6f4:	5d                   	pop    %rbp
+     6f5:	e9 66 ff ff ff       	jmpq   660 <register_tm_clones>
+
+00000000000006fa <get_line>:
+     6fa:	53                   	push   %rbx
+     6fb:	48 83 ec 10          	sub    $0x10,%rsp
+     6ff:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+     706:	00 00 
+     708:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+     70d:	31 c0                	xor    %eax,%eax
+     70f:	48 8d 5c 24 04       	lea    0x4(%rsp),%rbx
+     714:	48 89 df             	mov    %rbx,%rdi
+     717:	e8 b4 fe ff ff       	callq  5d0 <gets@plt>
+     71c:	48 89 df             	mov    %rbx,%rdi
+     71f:	e8 8c fe ff ff       	callq  5b0 <puts@plt>
+     724:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+     729:	64 48 33 04 25 28 00 	xor    %fs:0x28,%rax
+     730:	00 00 
+     732:	74 06                	je     73a <get_line+0x40>
+     734:	48 83 c4 10          	add    $0x10,%rsp
+     738:	5b                   	pop    %rbx
+     739:	c3                   	retq   
+     73a:	e8 81 fe ff ff       	callq  5c0 <__stack_chk_fail@plt>
+
+000000000000073f <show_1>:
+     73f:	48 83 ec 08          	sub    $0x8,%rsp
+     743:	48 8d 3d ca 1f 00 00 	lea    0x1fca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     74a:	e8 61 fe ff ff       	callq  5b0 <puts@plt>
+     74f:	48 8d 3d be 1f 00 00 	lea    0x1fbe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     756:	e8 55 fe ff ff       	callq  5b0 <puts@plt>
+     75b:	48 8d 3d b2 1f 00 00 	lea    0x1fb2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     762:	e8 49 fe ff ff       	callq  5b0 <puts@plt>
+     767:	48 8d 3d a6 1f 00 00 	lea    0x1fa6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     76e:	e8 3d fe ff ff       	callq  5b0 <puts@plt>
+     773:	48 8d 3d 9a 1f 00 00 	lea    0x1f9a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     77a:	e8 31 fe ff ff       	callq  5b0 <puts@plt>
+     77f:	48 8d 3d 8e 1f 00 00 	lea    0x1f8e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     786:	e8 25 fe ff ff       	callq  5b0 <puts@plt>
+     78b:	48 8d 3d 82 1f 00 00 	lea    0x1f82(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     792:	e8 19 fe ff ff       	callq  5b0 <puts@plt>
+     797:	48 8d 3d 76 1f 00 00 	lea    0x1f76(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     79e:	e8 0d fe ff ff       	callq  5b0 <puts@plt>
+     7a3:	48 8d 3d 6a 1f 00 00 	lea    0x1f6a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     7aa:	e8 01 fe ff ff       	callq  5b0 <puts@plt>
+     7af:	48 8d 3d 5e 1f 00 00 	lea    0x1f5e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     7b6:	e8 f5 fd ff ff       	callq  5b0 <puts@plt>
+     7bb:	48 8d 3d 52 1f 00 00 	lea    0x1f52(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     7c2:	e8 e9 fd ff ff       	callq  5b0 <puts@plt>
+     7c7:	48 8d 3d 46 1f 00 00 	lea    0x1f46(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     7ce:	e8 dd fd ff ff       	callq  5b0 <puts@plt>
+     7d3:	48 8d 3d 3a 1f 00 00 	lea    0x1f3a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     7da:	e8 d1 fd ff ff       	callq  5b0 <puts@plt>
+     7df:	48 8d 3d 2e 1f 00 00 	lea    0x1f2e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     7e6:	e8 c5 fd ff ff       	callq  5b0 <puts@plt>
+     7eb:	48 8d 3d 22 1f 00 00 	lea    0x1f22(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     7f2:	e8 b9 fd ff ff       	callq  5b0 <puts@plt>
+     7f7:	48 8d 3d 16 1f 00 00 	lea    0x1f16(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     7fe:	e8 ad fd ff ff       	callq  5b0 <puts@plt>
+     803:	48 8d 3d 0a 1f 00 00 	lea    0x1f0a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     80a:	e8 a1 fd ff ff       	callq  5b0 <puts@plt>
+     80f:	48 8d 3d fe 1e 00 00 	lea    0x1efe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     816:	e8 95 fd ff ff       	callq  5b0 <puts@plt>
+     81b:	48 8d 3d f2 1e 00 00 	lea    0x1ef2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     822:	e8 89 fd ff ff       	callq  5b0 <puts@plt>
+     827:	48 8d 3d e6 1e 00 00 	lea    0x1ee6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     82e:	e8 7d fd ff ff       	callq  5b0 <puts@plt>
+     833:	48 8d 3d da 1e 00 00 	lea    0x1eda(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     83a:	e8 71 fd ff ff       	callq  5b0 <puts@plt>
+     83f:	48 8d 3d ce 1e 00 00 	lea    0x1ece(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     846:	e8 65 fd ff ff       	callq  5b0 <puts@plt>
+     84b:	48 8d 3d c2 1e 00 00 	lea    0x1ec2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     852:	e8 59 fd ff ff       	callq  5b0 <puts@plt>
+     857:	48 8d 3d b6 1e 00 00 	lea    0x1eb6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     85e:	e8 4d fd ff ff       	callq  5b0 <puts@plt>
+     863:	48 8d 3d aa 1e 00 00 	lea    0x1eaa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     86a:	e8 41 fd ff ff       	callq  5b0 <puts@plt>
+     86f:	48 8d 3d 9e 1e 00 00 	lea    0x1e9e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     876:	e8 35 fd ff ff       	callq  5b0 <puts@plt>
+     87b:	48 8d 3d 92 1e 00 00 	lea    0x1e92(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     882:	e8 29 fd ff ff       	callq  5b0 <puts@plt>
+     887:	48 8d 3d 86 1e 00 00 	lea    0x1e86(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     88e:	e8 1d fd ff ff       	callq  5b0 <puts@plt>
+     893:	48 8d 3d 7a 1e 00 00 	lea    0x1e7a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     89a:	e8 11 fd ff ff       	callq  5b0 <puts@plt>
+     89f:	48 8d 3d 6e 1e 00 00 	lea    0x1e6e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     8a6:	e8 05 fd ff ff       	callq  5b0 <puts@plt>
+     8ab:	48 8d 3d 62 1e 00 00 	lea    0x1e62(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     8b2:	e8 f9 fc ff ff       	callq  5b0 <puts@plt>
+     8b7:	48 8d 3d 56 1e 00 00 	lea    0x1e56(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     8be:	e8 ed fc ff ff       	callq  5b0 <puts@plt>
+     8c3:	48 8d 3d 4a 1e 00 00 	lea    0x1e4a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     8ca:	e8 e1 fc ff ff       	callq  5b0 <puts@plt>
+     8cf:	48 8d 3d 3e 1e 00 00 	lea    0x1e3e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     8d6:	e8 d5 fc ff ff       	callq  5b0 <puts@plt>
+     8db:	48 8d 3d 32 1e 00 00 	lea    0x1e32(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     8e2:	e8 c9 fc ff ff       	callq  5b0 <puts@plt>
+     8e7:	48 8d 3d 26 1e 00 00 	lea    0x1e26(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     8ee:	e8 bd fc ff ff       	callq  5b0 <puts@plt>
+     8f3:	48 8d 3d 1a 1e 00 00 	lea    0x1e1a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     8fa:	e8 b1 fc ff ff       	callq  5b0 <puts@plt>
+     8ff:	48 8d 3d 0e 1e 00 00 	lea    0x1e0e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     906:	e8 a5 fc ff ff       	callq  5b0 <puts@plt>
+     90b:	48 8d 3d 02 1e 00 00 	lea    0x1e02(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     912:	e8 99 fc ff ff       	callq  5b0 <puts@plt>
+     917:	48 8d 3d f6 1d 00 00 	lea    0x1df6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     91e:	e8 8d fc ff ff       	callq  5b0 <puts@plt>
+     923:	48 8d 3d ea 1d 00 00 	lea    0x1dea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     92a:	e8 81 fc ff ff       	callq  5b0 <puts@plt>
+     92f:	48 8d 3d de 1d 00 00 	lea    0x1dde(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     936:	e8 75 fc ff ff       	callq  5b0 <puts@plt>
+     93b:	48 8d 3d d2 1d 00 00 	lea    0x1dd2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     942:	e8 69 fc ff ff       	callq  5b0 <puts@plt>
+     947:	48 8d 3d c6 1d 00 00 	lea    0x1dc6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     94e:	e8 5d fc ff ff       	callq  5b0 <puts@plt>
+     953:	48 8d 3d ba 1d 00 00 	lea    0x1dba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     95a:	e8 51 fc ff ff       	callq  5b0 <puts@plt>
+     95f:	48 8d 3d ae 1d 00 00 	lea    0x1dae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     966:	e8 45 fc ff ff       	callq  5b0 <puts@plt>
+     96b:	48 8d 3d a2 1d 00 00 	lea    0x1da2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     972:	e8 39 fc ff ff       	callq  5b0 <puts@plt>
+     977:	48 8d 3d 96 1d 00 00 	lea    0x1d96(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     97e:	e8 2d fc ff ff       	callq  5b0 <puts@plt>
+     983:	48 8d 3d 8a 1d 00 00 	lea    0x1d8a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     98a:	e8 21 fc ff ff       	callq  5b0 <puts@plt>
+     98f:	48 8d 3d 7e 1d 00 00 	lea    0x1d7e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     996:	e8 15 fc ff ff       	callq  5b0 <puts@plt>
+     99b:	48 8d 3d 72 1d 00 00 	lea    0x1d72(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     9a2:	e8 09 fc ff ff       	callq  5b0 <puts@plt>
+     9a7:	48 8d 3d 66 1d 00 00 	lea    0x1d66(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     9ae:	e8 fd fb ff ff       	callq  5b0 <puts@plt>
+     9b3:	48 8d 3d 5a 1d 00 00 	lea    0x1d5a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     9ba:	e8 f1 fb ff ff       	callq  5b0 <puts@plt>
+     9bf:	48 8d 3d 4e 1d 00 00 	lea    0x1d4e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     9c6:	e8 e5 fb ff ff       	callq  5b0 <puts@plt>
+     9cb:	48 8d 3d 42 1d 00 00 	lea    0x1d42(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     9d2:	e8 d9 fb ff ff       	callq  5b0 <puts@plt>
+     9d7:	48 8d 3d 36 1d 00 00 	lea    0x1d36(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     9de:	e8 cd fb ff ff       	callq  5b0 <puts@plt>
+     9e3:	48 8d 3d 2a 1d 00 00 	lea    0x1d2a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     9ea:	e8 c1 fb ff ff       	callq  5b0 <puts@plt>
+     9ef:	48 8d 3d 1e 1d 00 00 	lea    0x1d1e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     9f6:	e8 b5 fb ff ff       	callq  5b0 <puts@plt>
+     9fb:	48 8d 3d 12 1d 00 00 	lea    0x1d12(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a02:	e8 a9 fb ff ff       	callq  5b0 <puts@plt>
+     a07:	48 8d 3d 06 1d 00 00 	lea    0x1d06(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a0e:	e8 9d fb ff ff       	callq  5b0 <puts@plt>
+     a13:	48 8d 3d fa 1c 00 00 	lea    0x1cfa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a1a:	e8 91 fb ff ff       	callq  5b0 <puts@plt>
+     a1f:	48 8d 3d ee 1c 00 00 	lea    0x1cee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a26:	e8 85 fb ff ff       	callq  5b0 <puts@plt>
+     a2b:	48 8d 3d e2 1c 00 00 	lea    0x1ce2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a32:	e8 79 fb ff ff       	callq  5b0 <puts@plt>
+     a37:	48 8d 3d d6 1c 00 00 	lea    0x1cd6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a3e:	e8 6d fb ff ff       	callq  5b0 <puts@plt>
+     a43:	48 8d 3d ca 1c 00 00 	lea    0x1cca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a4a:	e8 61 fb ff ff       	callq  5b0 <puts@plt>
+     a4f:	48 8d 3d be 1c 00 00 	lea    0x1cbe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a56:	e8 55 fb ff ff       	callq  5b0 <puts@plt>
+     a5b:	48 8d 3d b2 1c 00 00 	lea    0x1cb2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a62:	e8 49 fb ff ff       	callq  5b0 <puts@plt>
+     a67:	48 8d 3d a6 1c 00 00 	lea    0x1ca6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a6e:	e8 3d fb ff ff       	callq  5b0 <puts@plt>
+     a73:	48 8d 3d 9a 1c 00 00 	lea    0x1c9a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a7a:	e8 31 fb ff ff       	callq  5b0 <puts@plt>
+     a7f:	48 8d 3d 8e 1c 00 00 	lea    0x1c8e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a86:	e8 25 fb ff ff       	callq  5b0 <puts@plt>
+     a8b:	48 8d 3d 82 1c 00 00 	lea    0x1c82(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a92:	e8 19 fb ff ff       	callq  5b0 <puts@plt>
+     a97:	48 8d 3d 76 1c 00 00 	lea    0x1c76(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     a9e:	e8 0d fb ff ff       	callq  5b0 <puts@plt>
+     aa3:	48 8d 3d 6a 1c 00 00 	lea    0x1c6a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     aaa:	e8 01 fb ff ff       	callq  5b0 <puts@plt>
+     aaf:	48 8d 3d 5e 1c 00 00 	lea    0x1c5e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ab6:	e8 f5 fa ff ff       	callq  5b0 <puts@plt>
+     abb:	48 8d 3d 52 1c 00 00 	lea    0x1c52(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ac2:	e8 e9 fa ff ff       	callq  5b0 <puts@plt>
+     ac7:	48 8d 3d 46 1c 00 00 	lea    0x1c46(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ace:	e8 dd fa ff ff       	callq  5b0 <puts@plt>
+     ad3:	48 8d 3d 3a 1c 00 00 	lea    0x1c3a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ada:	e8 d1 fa ff ff       	callq  5b0 <puts@plt>
+     adf:	48 8d 3d 2e 1c 00 00 	lea    0x1c2e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ae6:	e8 c5 fa ff ff       	callq  5b0 <puts@plt>
+     aeb:	48 8d 3d 22 1c 00 00 	lea    0x1c22(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     af2:	e8 b9 fa ff ff       	callq  5b0 <puts@plt>
+     af7:	48 8d 3d 16 1c 00 00 	lea    0x1c16(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     afe:	e8 ad fa ff ff       	callq  5b0 <puts@plt>
+     b03:	48 8d 3d 0a 1c 00 00 	lea    0x1c0a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b0a:	e8 a1 fa ff ff       	callq  5b0 <puts@plt>
+     b0f:	48 8d 3d fe 1b 00 00 	lea    0x1bfe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b16:	e8 95 fa ff ff       	callq  5b0 <puts@plt>
+     b1b:	48 8d 3d f2 1b 00 00 	lea    0x1bf2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b22:	e8 89 fa ff ff       	callq  5b0 <puts@plt>
+     b27:	48 8d 3d e6 1b 00 00 	lea    0x1be6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b2e:	e8 7d fa ff ff       	callq  5b0 <puts@plt>
+     b33:	48 8d 3d da 1b 00 00 	lea    0x1bda(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b3a:	e8 71 fa ff ff       	callq  5b0 <puts@plt>
+     b3f:	48 8d 3d ce 1b 00 00 	lea    0x1bce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b46:	e8 65 fa ff ff       	callq  5b0 <puts@plt>
+     b4b:	48 8d 3d c2 1b 00 00 	lea    0x1bc2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b52:	e8 59 fa ff ff       	callq  5b0 <puts@plt>
+     b57:	48 8d 3d b6 1b 00 00 	lea    0x1bb6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b5e:	e8 4d fa ff ff       	callq  5b0 <puts@plt>
+     b63:	48 8d 3d aa 1b 00 00 	lea    0x1baa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b6a:	e8 41 fa ff ff       	callq  5b0 <puts@plt>
+     b6f:	48 8d 3d 9e 1b 00 00 	lea    0x1b9e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b76:	e8 35 fa ff ff       	callq  5b0 <puts@plt>
+     b7b:	48 8d 3d 92 1b 00 00 	lea    0x1b92(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b82:	e8 29 fa ff ff       	callq  5b0 <puts@plt>
+     b87:	48 8d 3d 86 1b 00 00 	lea    0x1b86(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b8e:	e8 1d fa ff ff       	callq  5b0 <puts@plt>
+     b93:	48 8d 3d 7a 1b 00 00 	lea    0x1b7a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     b9a:	e8 11 fa ff ff       	callq  5b0 <puts@plt>
+     b9f:	48 8d 3d 6e 1b 00 00 	lea    0x1b6e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ba6:	e8 05 fa ff ff       	callq  5b0 <puts@plt>
+     bab:	48 8d 3d 62 1b 00 00 	lea    0x1b62(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     bb2:	e8 f9 f9 ff ff       	callq  5b0 <puts@plt>
+     bb7:	48 8d 3d 56 1b 00 00 	lea    0x1b56(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     bbe:	e8 ed f9 ff ff       	callq  5b0 <puts@plt>
+     bc3:	48 8d 3d 4a 1b 00 00 	lea    0x1b4a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     bca:	e8 e1 f9 ff ff       	callq  5b0 <puts@plt>
+     bcf:	48 8d 3d 3e 1b 00 00 	lea    0x1b3e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     bd6:	e8 d5 f9 ff ff       	callq  5b0 <puts@plt>
+     bdb:	48 8d 3d 32 1b 00 00 	lea    0x1b32(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     be2:	e8 c9 f9 ff ff       	callq  5b0 <puts@plt>
+     be7:	48 8d 3d 26 1b 00 00 	lea    0x1b26(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     bee:	e8 bd f9 ff ff       	callq  5b0 <puts@plt>
+     bf3:	48 8d 3d 1a 1b 00 00 	lea    0x1b1a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     bfa:	e8 b1 f9 ff ff       	callq  5b0 <puts@plt>
+     bff:	48 8d 3d 0e 1b 00 00 	lea    0x1b0e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c06:	e8 a5 f9 ff ff       	callq  5b0 <puts@plt>
+     c0b:	48 8d 3d 02 1b 00 00 	lea    0x1b02(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c12:	e8 99 f9 ff ff       	callq  5b0 <puts@plt>
+     c17:	48 8d 3d f6 1a 00 00 	lea    0x1af6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c1e:	e8 8d f9 ff ff       	callq  5b0 <puts@plt>
+     c23:	48 8d 3d ea 1a 00 00 	lea    0x1aea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c2a:	e8 81 f9 ff ff       	callq  5b0 <puts@plt>
+     c2f:	48 8d 3d de 1a 00 00 	lea    0x1ade(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c36:	e8 75 f9 ff ff       	callq  5b0 <puts@plt>
+     c3b:	48 8d 3d d2 1a 00 00 	lea    0x1ad2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c42:	e8 69 f9 ff ff       	callq  5b0 <puts@plt>
+     c47:	48 8d 3d c6 1a 00 00 	lea    0x1ac6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c4e:	e8 5d f9 ff ff       	callq  5b0 <puts@plt>
+     c53:	48 8d 3d ba 1a 00 00 	lea    0x1aba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c5a:	e8 51 f9 ff ff       	callq  5b0 <puts@plt>
+     c5f:	48 8d 3d ae 1a 00 00 	lea    0x1aae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c66:	e8 45 f9 ff ff       	callq  5b0 <puts@plt>
+     c6b:	48 8d 3d a2 1a 00 00 	lea    0x1aa2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c72:	e8 39 f9 ff ff       	callq  5b0 <puts@plt>
+     c77:	48 8d 3d 96 1a 00 00 	lea    0x1a96(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c7e:	e8 2d f9 ff ff       	callq  5b0 <puts@plt>
+     c83:	48 8d 3d 8a 1a 00 00 	lea    0x1a8a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c8a:	e8 21 f9 ff ff       	callq  5b0 <puts@plt>
+     c8f:	48 8d 3d 7e 1a 00 00 	lea    0x1a7e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     c96:	e8 15 f9 ff ff       	callq  5b0 <puts@plt>
+     c9b:	48 8d 3d 72 1a 00 00 	lea    0x1a72(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ca2:	e8 09 f9 ff ff       	callq  5b0 <puts@plt>
+     ca7:	48 8d 3d 66 1a 00 00 	lea    0x1a66(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     cae:	e8 fd f8 ff ff       	callq  5b0 <puts@plt>
+     cb3:	48 8d 3d 5a 1a 00 00 	lea    0x1a5a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     cba:	e8 f1 f8 ff ff       	callq  5b0 <puts@plt>
+     cbf:	48 8d 3d 4e 1a 00 00 	lea    0x1a4e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     cc6:	e8 e5 f8 ff ff       	callq  5b0 <puts@plt>
+     ccb:	48 8d 3d 42 1a 00 00 	lea    0x1a42(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     cd2:	e8 d9 f8 ff ff       	callq  5b0 <puts@plt>
+     cd7:	48 8d 3d 36 1a 00 00 	lea    0x1a36(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     cde:	e8 cd f8 ff ff       	callq  5b0 <puts@plt>
+     ce3:	48 8d 3d 2a 1a 00 00 	lea    0x1a2a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     cea:	e8 c1 f8 ff ff       	callq  5b0 <puts@plt>
+     cef:	48 8d 3d 1e 1a 00 00 	lea    0x1a1e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     cf6:	e8 b5 f8 ff ff       	callq  5b0 <puts@plt>
+     cfb:	48 8d 3d 12 1a 00 00 	lea    0x1a12(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d02:	e8 a9 f8 ff ff       	callq  5b0 <puts@plt>
+     d07:	48 8d 3d 06 1a 00 00 	lea    0x1a06(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d0e:	e8 9d f8 ff ff       	callq  5b0 <puts@plt>
+     d13:	48 8d 3d fa 19 00 00 	lea    0x19fa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d1a:	e8 91 f8 ff ff       	callq  5b0 <puts@plt>
+     d1f:	48 8d 3d ee 19 00 00 	lea    0x19ee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d26:	e8 85 f8 ff ff       	callq  5b0 <puts@plt>
+     d2b:	48 8d 3d e2 19 00 00 	lea    0x19e2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d32:	e8 79 f8 ff ff       	callq  5b0 <puts@plt>
+     d37:	48 8d 3d d6 19 00 00 	lea    0x19d6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d3e:	e8 6d f8 ff ff       	callq  5b0 <puts@plt>
+     d43:	48 8d 3d ca 19 00 00 	lea    0x19ca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d4a:	e8 61 f8 ff ff       	callq  5b0 <puts@plt>
+     d4f:	48 8d 3d be 19 00 00 	lea    0x19be(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d56:	e8 55 f8 ff ff       	callq  5b0 <puts@plt>
+     d5b:	48 8d 3d b2 19 00 00 	lea    0x19b2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d62:	e8 49 f8 ff ff       	callq  5b0 <puts@plt>
+     d67:	48 8d 3d a6 19 00 00 	lea    0x19a6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d6e:	e8 3d f8 ff ff       	callq  5b0 <puts@plt>
+     d73:	48 8d 3d 9a 19 00 00 	lea    0x199a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d7a:	e8 31 f8 ff ff       	callq  5b0 <puts@plt>
+     d7f:	48 8d 3d 8e 19 00 00 	lea    0x198e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d86:	e8 25 f8 ff ff       	callq  5b0 <puts@plt>
+     d8b:	48 8d 3d 82 19 00 00 	lea    0x1982(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d92:	e8 19 f8 ff ff       	callq  5b0 <puts@plt>
+     d97:	48 8d 3d 76 19 00 00 	lea    0x1976(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     d9e:	e8 0d f8 ff ff       	callq  5b0 <puts@plt>
+     da3:	48 8d 3d 6a 19 00 00 	lea    0x196a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     daa:	e8 01 f8 ff ff       	callq  5b0 <puts@plt>
+     daf:	48 8d 3d 5e 19 00 00 	lea    0x195e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     db6:	e8 f5 f7 ff ff       	callq  5b0 <puts@plt>
+     dbb:	48 8d 3d 52 19 00 00 	lea    0x1952(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     dc2:	e8 e9 f7 ff ff       	callq  5b0 <puts@plt>
+     dc7:	48 8d 3d 46 19 00 00 	lea    0x1946(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     dce:	e8 dd f7 ff ff       	callq  5b0 <puts@plt>
+     dd3:	48 8d 3d 3a 19 00 00 	lea    0x193a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     dda:	e8 d1 f7 ff ff       	callq  5b0 <puts@plt>
+     ddf:	48 8d 3d 2e 19 00 00 	lea    0x192e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     de6:	e8 c5 f7 ff ff       	callq  5b0 <puts@plt>
+     deb:	48 8d 3d 22 19 00 00 	lea    0x1922(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     df2:	e8 b9 f7 ff ff       	callq  5b0 <puts@plt>
+     df7:	48 8d 3d 16 19 00 00 	lea    0x1916(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     dfe:	e8 ad f7 ff ff       	callq  5b0 <puts@plt>
+     e03:	48 8d 3d 0a 19 00 00 	lea    0x190a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e0a:	e8 a1 f7 ff ff       	callq  5b0 <puts@plt>
+     e0f:	48 8d 3d fe 18 00 00 	lea    0x18fe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e16:	e8 95 f7 ff ff       	callq  5b0 <puts@plt>
+     e1b:	48 8d 3d f2 18 00 00 	lea    0x18f2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e22:	e8 89 f7 ff ff       	callq  5b0 <puts@plt>
+     e27:	48 8d 3d e6 18 00 00 	lea    0x18e6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e2e:	e8 7d f7 ff ff       	callq  5b0 <puts@plt>
+     e33:	48 8d 3d da 18 00 00 	lea    0x18da(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e3a:	e8 71 f7 ff ff       	callq  5b0 <puts@plt>
+     e3f:	48 8d 3d ce 18 00 00 	lea    0x18ce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e46:	e8 65 f7 ff ff       	callq  5b0 <puts@plt>
+     e4b:	48 8d 3d c2 18 00 00 	lea    0x18c2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e52:	e8 59 f7 ff ff       	callq  5b0 <puts@plt>
+     e57:	48 8d 3d b6 18 00 00 	lea    0x18b6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e5e:	e8 4d f7 ff ff       	callq  5b0 <puts@plt>
+     e63:	48 8d 3d aa 18 00 00 	lea    0x18aa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e6a:	e8 41 f7 ff ff       	callq  5b0 <puts@plt>
+     e6f:	48 8d 3d 9e 18 00 00 	lea    0x189e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e76:	e8 35 f7 ff ff       	callq  5b0 <puts@plt>
+     e7b:	48 8d 3d 92 18 00 00 	lea    0x1892(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e82:	e8 29 f7 ff ff       	callq  5b0 <puts@plt>
+     e87:	48 8d 3d 86 18 00 00 	lea    0x1886(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e8e:	e8 1d f7 ff ff       	callq  5b0 <puts@plt>
+     e93:	48 8d 3d 7a 18 00 00 	lea    0x187a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     e9a:	e8 11 f7 ff ff       	callq  5b0 <puts@plt>
+     e9f:	48 8d 3d 6e 18 00 00 	lea    0x186e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ea6:	e8 05 f7 ff ff       	callq  5b0 <puts@plt>
+     eab:	48 8d 3d 62 18 00 00 	lea    0x1862(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     eb2:	e8 f9 f6 ff ff       	callq  5b0 <puts@plt>
+     eb7:	48 8d 3d 56 18 00 00 	lea    0x1856(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ebe:	e8 ed f6 ff ff       	callq  5b0 <puts@plt>
+     ec3:	48 8d 3d 4a 18 00 00 	lea    0x184a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     eca:	e8 e1 f6 ff ff       	callq  5b0 <puts@plt>
+     ecf:	48 8d 3d 3e 18 00 00 	lea    0x183e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ed6:	e8 d5 f6 ff ff       	callq  5b0 <puts@plt>
+     edb:	48 8d 3d 32 18 00 00 	lea    0x1832(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ee2:	e8 c9 f6 ff ff       	callq  5b0 <puts@plt>
+     ee7:	48 8d 3d 26 18 00 00 	lea    0x1826(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     eee:	e8 bd f6 ff ff       	callq  5b0 <puts@plt>
+     ef3:	48 8d 3d 1a 18 00 00 	lea    0x181a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     efa:	e8 b1 f6 ff ff       	callq  5b0 <puts@plt>
+     eff:	48 8d 3d 0e 18 00 00 	lea    0x180e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f06:	e8 a5 f6 ff ff       	callq  5b0 <puts@plt>
+     f0b:	48 8d 3d 02 18 00 00 	lea    0x1802(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f12:	e8 99 f6 ff ff       	callq  5b0 <puts@plt>
+     f17:	48 8d 3d f6 17 00 00 	lea    0x17f6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f1e:	e8 8d f6 ff ff       	callq  5b0 <puts@plt>
+     f23:	48 8d 3d ea 17 00 00 	lea    0x17ea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f2a:	e8 81 f6 ff ff       	callq  5b0 <puts@plt>
+     f2f:	48 8d 3d de 17 00 00 	lea    0x17de(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f36:	e8 75 f6 ff ff       	callq  5b0 <puts@plt>
+     f3b:	48 8d 3d d2 17 00 00 	lea    0x17d2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f42:	e8 69 f6 ff ff       	callq  5b0 <puts@plt>
+     f47:	48 8d 3d c6 17 00 00 	lea    0x17c6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f4e:	e8 5d f6 ff ff       	callq  5b0 <puts@plt>
+     f53:	48 8d 3d ba 17 00 00 	lea    0x17ba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f5a:	e8 51 f6 ff ff       	callq  5b0 <puts@plt>
+     f5f:	48 8d 3d ae 17 00 00 	lea    0x17ae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f66:	e8 45 f6 ff ff       	callq  5b0 <puts@plt>
+     f6b:	48 8d 3d a2 17 00 00 	lea    0x17a2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f72:	e8 39 f6 ff ff       	callq  5b0 <puts@plt>
+     f77:	48 8d 3d 96 17 00 00 	lea    0x1796(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f7e:	e8 2d f6 ff ff       	callq  5b0 <puts@plt>
+     f83:	48 8d 3d 8a 17 00 00 	lea    0x178a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f8a:	e8 21 f6 ff ff       	callq  5b0 <puts@plt>
+     f8f:	48 8d 3d 7e 17 00 00 	lea    0x177e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     f96:	e8 15 f6 ff ff       	callq  5b0 <puts@plt>
+     f9b:	48 8d 3d 72 17 00 00 	lea    0x1772(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     fa2:	e8 09 f6 ff ff       	callq  5b0 <puts@plt>
+     fa7:	48 8d 3d 66 17 00 00 	lea    0x1766(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     fae:	e8 fd f5 ff ff       	callq  5b0 <puts@plt>
+     fb3:	48 8d 3d 5a 17 00 00 	lea    0x175a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     fba:	e8 f1 f5 ff ff       	callq  5b0 <puts@plt>
+     fbf:	48 8d 3d 4e 17 00 00 	lea    0x174e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     fc6:	e8 e5 f5 ff ff       	callq  5b0 <puts@plt>
+     fcb:	48 8d 3d 42 17 00 00 	lea    0x1742(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     fd2:	e8 d9 f5 ff ff       	callq  5b0 <puts@plt>
+     fd7:	48 8d 3d 36 17 00 00 	lea    0x1736(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     fde:	e8 cd f5 ff ff       	callq  5b0 <puts@plt>
+     fe3:	48 8d 3d 2a 17 00 00 	lea    0x172a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     fea:	e8 c1 f5 ff ff       	callq  5b0 <puts@plt>
+     fef:	48 8d 3d 1e 17 00 00 	lea    0x171e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+     ff6:	e8 b5 f5 ff ff       	callq  5b0 <puts@plt>
+     ffb:	48 8d 3d 12 17 00 00 	lea    0x1712(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1002:	e8 a9 f5 ff ff       	callq  5b0 <puts@plt>
+    1007:	48 8d 3d 06 17 00 00 	lea    0x1706(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    100e:	e8 9d f5 ff ff       	callq  5b0 <puts@plt>
+    1013:	48 8d 3d fa 16 00 00 	lea    0x16fa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    101a:	e8 91 f5 ff ff       	callq  5b0 <puts@plt>
+    101f:	48 8d 3d ee 16 00 00 	lea    0x16ee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1026:	e8 85 f5 ff ff       	callq  5b0 <puts@plt>
+    102b:	48 8d 3d e2 16 00 00 	lea    0x16e2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1032:	e8 79 f5 ff ff       	callq  5b0 <puts@plt>
+    1037:	48 8d 3d d6 16 00 00 	lea    0x16d6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    103e:	e8 6d f5 ff ff       	callq  5b0 <puts@plt>
+    1043:	48 8d 3d ca 16 00 00 	lea    0x16ca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    104a:	e8 61 f5 ff ff       	callq  5b0 <puts@plt>
+    104f:	48 8d 3d be 16 00 00 	lea    0x16be(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1056:	e8 55 f5 ff ff       	callq  5b0 <puts@plt>
+    105b:	48 8d 3d b2 16 00 00 	lea    0x16b2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1062:	e8 49 f5 ff ff       	callq  5b0 <puts@plt>
+    1067:	48 8d 3d a6 16 00 00 	lea    0x16a6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    106e:	e8 3d f5 ff ff       	callq  5b0 <puts@plt>
+    1073:	48 8d 3d 9a 16 00 00 	lea    0x169a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    107a:	e8 31 f5 ff ff       	callq  5b0 <puts@plt>
+    107f:	48 8d 3d 8e 16 00 00 	lea    0x168e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1086:	e8 25 f5 ff ff       	callq  5b0 <puts@plt>
+    108b:	48 8d 3d 82 16 00 00 	lea    0x1682(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1092:	e8 19 f5 ff ff       	callq  5b0 <puts@plt>
+    1097:	48 8d 3d 76 16 00 00 	lea    0x1676(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    109e:	e8 0d f5 ff ff       	callq  5b0 <puts@plt>
+    10a3:	48 8d 3d 6a 16 00 00 	lea    0x166a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    10aa:	e8 01 f5 ff ff       	callq  5b0 <puts@plt>
+    10af:	48 8d 3d 5e 16 00 00 	lea    0x165e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    10b6:	e8 f5 f4 ff ff       	callq  5b0 <puts@plt>
+    10bb:	48 8d 3d 52 16 00 00 	lea    0x1652(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    10c2:	e8 e9 f4 ff ff       	callq  5b0 <puts@plt>
+    10c7:	48 8d 3d 46 16 00 00 	lea    0x1646(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    10ce:	e8 dd f4 ff ff       	callq  5b0 <puts@plt>
+    10d3:	48 8d 3d 3a 16 00 00 	lea    0x163a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    10da:	e8 d1 f4 ff ff       	callq  5b0 <puts@plt>
+    10df:	48 8d 3d 2e 16 00 00 	lea    0x162e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    10e6:	e8 c5 f4 ff ff       	callq  5b0 <puts@plt>
+    10eb:	48 8d 3d 22 16 00 00 	lea    0x1622(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    10f2:	e8 b9 f4 ff ff       	callq  5b0 <puts@plt>
+    10f7:	48 8d 3d 16 16 00 00 	lea    0x1616(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    10fe:	e8 ad f4 ff ff       	callq  5b0 <puts@plt>
+    1103:	48 8d 3d 0a 16 00 00 	lea    0x160a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    110a:	e8 a1 f4 ff ff       	callq  5b0 <puts@plt>
+    110f:	48 8d 3d fe 15 00 00 	lea    0x15fe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1116:	e8 95 f4 ff ff       	callq  5b0 <puts@plt>
+    111b:	48 8d 3d f2 15 00 00 	lea    0x15f2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1122:	e8 89 f4 ff ff       	callq  5b0 <puts@plt>
+    1127:	48 8d 3d e6 15 00 00 	lea    0x15e6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    112e:	e8 7d f4 ff ff       	callq  5b0 <puts@plt>
+    1133:	48 8d 3d da 15 00 00 	lea    0x15da(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    113a:	e8 71 f4 ff ff       	callq  5b0 <puts@plt>
+    113f:	48 8d 3d ce 15 00 00 	lea    0x15ce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1146:	e8 65 f4 ff ff       	callq  5b0 <puts@plt>
+    114b:	48 8d 3d c2 15 00 00 	lea    0x15c2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1152:	e8 59 f4 ff ff       	callq  5b0 <puts@plt>
+    1157:	48 8d 3d b6 15 00 00 	lea    0x15b6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    115e:	e8 4d f4 ff ff       	callq  5b0 <puts@plt>
+    1163:	48 8d 3d aa 15 00 00 	lea    0x15aa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    116a:	e8 41 f4 ff ff       	callq  5b0 <puts@plt>
+    116f:	48 8d 3d 9e 15 00 00 	lea    0x159e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1176:	e8 35 f4 ff ff       	callq  5b0 <puts@plt>
+    117b:	48 8d 3d 92 15 00 00 	lea    0x1592(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1182:	e8 29 f4 ff ff       	callq  5b0 <puts@plt>
+    1187:	48 8d 3d 86 15 00 00 	lea    0x1586(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    118e:	e8 1d f4 ff ff       	callq  5b0 <puts@plt>
+    1193:	48 8d 3d 7a 15 00 00 	lea    0x157a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    119a:	e8 11 f4 ff ff       	callq  5b0 <puts@plt>
+    119f:	48 8d 3d 6e 15 00 00 	lea    0x156e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    11a6:	e8 05 f4 ff ff       	callq  5b0 <puts@plt>
+    11ab:	48 8d 3d 62 15 00 00 	lea    0x1562(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    11b2:	e8 f9 f3 ff ff       	callq  5b0 <puts@plt>
+    11b7:	48 8d 3d 56 15 00 00 	lea    0x1556(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    11be:	e8 ed f3 ff ff       	callq  5b0 <puts@plt>
+    11c3:	48 8d 3d 4a 15 00 00 	lea    0x154a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    11ca:	e8 e1 f3 ff ff       	callq  5b0 <puts@plt>
+    11cf:	48 8d 3d 3e 15 00 00 	lea    0x153e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    11d6:	e8 d5 f3 ff ff       	callq  5b0 <puts@plt>
+    11db:	48 8d 3d 32 15 00 00 	lea    0x1532(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    11e2:	e8 c9 f3 ff ff       	callq  5b0 <puts@plt>
+    11e7:	48 8d 3d 26 15 00 00 	lea    0x1526(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    11ee:	e8 bd f3 ff ff       	callq  5b0 <puts@plt>
+    11f3:	48 8d 3d 1a 15 00 00 	lea    0x151a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    11fa:	e8 b1 f3 ff ff       	callq  5b0 <puts@plt>
+    11ff:	48 8d 3d 0e 15 00 00 	lea    0x150e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1206:	e8 a5 f3 ff ff       	callq  5b0 <puts@plt>
+    120b:	48 8d 3d 02 15 00 00 	lea    0x1502(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1212:	e8 99 f3 ff ff       	callq  5b0 <puts@plt>
+    1217:	48 8d 3d f6 14 00 00 	lea    0x14f6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    121e:	e8 8d f3 ff ff       	callq  5b0 <puts@plt>
+    1223:	48 8d 3d ea 14 00 00 	lea    0x14ea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    122a:	e8 81 f3 ff ff       	callq  5b0 <puts@plt>
+    122f:	48 8d 3d de 14 00 00 	lea    0x14de(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1236:	e8 75 f3 ff ff       	callq  5b0 <puts@plt>
+    123b:	48 8d 3d d2 14 00 00 	lea    0x14d2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1242:	e8 69 f3 ff ff       	callq  5b0 <puts@plt>
+    1247:	48 8d 3d c6 14 00 00 	lea    0x14c6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    124e:	e8 5d f3 ff ff       	callq  5b0 <puts@plt>
+    1253:	48 8d 3d ba 14 00 00 	lea    0x14ba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    125a:	e8 51 f3 ff ff       	callq  5b0 <puts@plt>
+    125f:	48 8d 3d ae 14 00 00 	lea    0x14ae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1266:	e8 45 f3 ff ff       	callq  5b0 <puts@plt>
+    126b:	48 8d 3d a2 14 00 00 	lea    0x14a2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1272:	e8 39 f3 ff ff       	callq  5b0 <puts@plt>
+    1277:	48 8d 3d 96 14 00 00 	lea    0x1496(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    127e:	e8 2d f3 ff ff       	callq  5b0 <puts@plt>
+    1283:	48 8d 3d 8a 14 00 00 	lea    0x148a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    128a:	e8 21 f3 ff ff       	callq  5b0 <puts@plt>
+    128f:	48 8d 3d 7e 14 00 00 	lea    0x147e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1296:	e8 15 f3 ff ff       	callq  5b0 <puts@plt>
+    129b:	48 8d 3d 72 14 00 00 	lea    0x1472(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    12a2:	e8 09 f3 ff ff       	callq  5b0 <puts@plt>
+    12a7:	48 8d 3d 66 14 00 00 	lea    0x1466(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    12ae:	e8 fd f2 ff ff       	callq  5b0 <puts@plt>
+    12b3:	48 8d 3d 5a 14 00 00 	lea    0x145a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    12ba:	e8 f1 f2 ff ff       	callq  5b0 <puts@plt>
+    12bf:	48 8d 3d 4e 14 00 00 	lea    0x144e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    12c6:	e8 e5 f2 ff ff       	callq  5b0 <puts@plt>
+    12cb:	48 8d 3d 42 14 00 00 	lea    0x1442(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    12d2:	e8 d9 f2 ff ff       	callq  5b0 <puts@plt>
+    12d7:	48 8d 3d 36 14 00 00 	lea    0x1436(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    12de:	e8 cd f2 ff ff       	callq  5b0 <puts@plt>
+    12e3:	48 8d 3d 2a 14 00 00 	lea    0x142a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    12ea:	e8 c1 f2 ff ff       	callq  5b0 <puts@plt>
+    12ef:	48 8d 3d 1e 14 00 00 	lea    0x141e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    12f6:	e8 b5 f2 ff ff       	callq  5b0 <puts@plt>
+    12fb:	48 8d 3d 12 14 00 00 	lea    0x1412(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1302:	e8 a9 f2 ff ff       	callq  5b0 <puts@plt>
+    1307:	48 8d 3d 06 14 00 00 	lea    0x1406(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    130e:	e8 9d f2 ff ff       	callq  5b0 <puts@plt>
+    1313:	48 8d 3d fa 13 00 00 	lea    0x13fa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    131a:	e8 91 f2 ff ff       	callq  5b0 <puts@plt>
+    131f:	48 8d 3d ee 13 00 00 	lea    0x13ee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1326:	e8 85 f2 ff ff       	callq  5b0 <puts@plt>
+    132b:	48 8d 3d e2 13 00 00 	lea    0x13e2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1332:	e8 79 f2 ff ff       	callq  5b0 <puts@plt>
+    1337:	48 8d 3d d6 13 00 00 	lea    0x13d6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    133e:	e8 6d f2 ff ff       	callq  5b0 <puts@plt>
+    1343:	48 8d 3d ca 13 00 00 	lea    0x13ca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    134a:	e8 61 f2 ff ff       	callq  5b0 <puts@plt>
+    134f:	48 8d 3d be 13 00 00 	lea    0x13be(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1356:	e8 55 f2 ff ff       	callq  5b0 <puts@plt>
+    135b:	48 8d 3d b2 13 00 00 	lea    0x13b2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1362:	e8 49 f2 ff ff       	callq  5b0 <puts@plt>
+    1367:	48 8d 3d a6 13 00 00 	lea    0x13a6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    136e:	e8 3d f2 ff ff       	callq  5b0 <puts@plt>
+    1373:	48 8d 3d 9a 13 00 00 	lea    0x139a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    137a:	e8 31 f2 ff ff       	callq  5b0 <puts@plt>
+    137f:	48 8d 3d 8e 13 00 00 	lea    0x138e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1386:	e8 25 f2 ff ff       	callq  5b0 <puts@plt>
+    138b:	48 8d 3d 82 13 00 00 	lea    0x1382(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1392:	e8 19 f2 ff ff       	callq  5b0 <puts@plt>
+    1397:	48 8d 3d 76 13 00 00 	lea    0x1376(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    139e:	e8 0d f2 ff ff       	callq  5b0 <puts@plt>
+    13a3:	48 8d 3d 6a 13 00 00 	lea    0x136a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    13aa:	e8 01 f2 ff ff       	callq  5b0 <puts@plt>
+    13af:	48 8d 3d 5e 13 00 00 	lea    0x135e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    13b6:	e8 f5 f1 ff ff       	callq  5b0 <puts@plt>
+    13bb:	48 8d 3d 52 13 00 00 	lea    0x1352(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    13c2:	e8 e9 f1 ff ff       	callq  5b0 <puts@plt>
+    13c7:	48 8d 3d 46 13 00 00 	lea    0x1346(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    13ce:	e8 dd f1 ff ff       	callq  5b0 <puts@plt>
+    13d3:	48 8d 3d 3a 13 00 00 	lea    0x133a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    13da:	e8 d1 f1 ff ff       	callq  5b0 <puts@plt>
+    13df:	48 8d 3d 2e 13 00 00 	lea    0x132e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    13e6:	e8 c5 f1 ff ff       	callq  5b0 <puts@plt>
+    13eb:	48 8d 3d 22 13 00 00 	lea    0x1322(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    13f2:	e8 b9 f1 ff ff       	callq  5b0 <puts@plt>
+    13f7:	48 8d 3d 16 13 00 00 	lea    0x1316(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    13fe:	e8 ad f1 ff ff       	callq  5b0 <puts@plt>
+    1403:	48 8d 3d 0a 13 00 00 	lea    0x130a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    140a:	e8 a1 f1 ff ff       	callq  5b0 <puts@plt>
+    140f:	48 8d 3d fe 12 00 00 	lea    0x12fe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1416:	e8 95 f1 ff ff       	callq  5b0 <puts@plt>
+    141b:	48 8d 3d f2 12 00 00 	lea    0x12f2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1422:	e8 89 f1 ff ff       	callq  5b0 <puts@plt>
+    1427:	48 8d 3d e6 12 00 00 	lea    0x12e6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    142e:	e8 7d f1 ff ff       	callq  5b0 <puts@plt>
+    1433:	48 8d 3d da 12 00 00 	lea    0x12da(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    143a:	e8 71 f1 ff ff       	callq  5b0 <puts@plt>
+    143f:	48 8d 3d ce 12 00 00 	lea    0x12ce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1446:	e8 65 f1 ff ff       	callq  5b0 <puts@plt>
+    144b:	48 8d 3d c2 12 00 00 	lea    0x12c2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1452:	e8 59 f1 ff ff       	callq  5b0 <puts@plt>
+    1457:	48 8d 3d b6 12 00 00 	lea    0x12b6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    145e:	e8 4d f1 ff ff       	callq  5b0 <puts@plt>
+    1463:	48 8d 3d aa 12 00 00 	lea    0x12aa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    146a:	e8 41 f1 ff ff       	callq  5b0 <puts@plt>
+    146f:	48 8d 3d 9e 12 00 00 	lea    0x129e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1476:	e8 35 f1 ff ff       	callq  5b0 <puts@plt>
+    147b:	48 8d 3d 92 12 00 00 	lea    0x1292(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1482:	e8 29 f1 ff ff       	callq  5b0 <puts@plt>
+    1487:	48 8d 3d 86 12 00 00 	lea    0x1286(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    148e:	e8 1d f1 ff ff       	callq  5b0 <puts@plt>
+    1493:	48 8d 3d 7a 12 00 00 	lea    0x127a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    149a:	e8 11 f1 ff ff       	callq  5b0 <puts@plt>
+    149f:	48 8d 3d 6e 12 00 00 	lea    0x126e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    14a6:	e8 05 f1 ff ff       	callq  5b0 <puts@plt>
+    14ab:	48 8d 3d 62 12 00 00 	lea    0x1262(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    14b2:	e8 f9 f0 ff ff       	callq  5b0 <puts@plt>
+    14b7:	48 8d 3d 56 12 00 00 	lea    0x1256(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    14be:	e8 ed f0 ff ff       	callq  5b0 <puts@plt>
+    14c3:	48 8d 3d 4a 12 00 00 	lea    0x124a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    14ca:	e8 e1 f0 ff ff       	callq  5b0 <puts@plt>
+    14cf:	48 8d 3d 3e 12 00 00 	lea    0x123e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    14d6:	e8 d5 f0 ff ff       	callq  5b0 <puts@plt>
+    14db:	48 8d 3d 32 12 00 00 	lea    0x1232(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    14e2:	e8 c9 f0 ff ff       	callq  5b0 <puts@plt>
+    14e7:	48 8d 3d 26 12 00 00 	lea    0x1226(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    14ee:	e8 bd f0 ff ff       	callq  5b0 <puts@plt>
+    14f3:	48 8d 3d 1a 12 00 00 	lea    0x121a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    14fa:	e8 b1 f0 ff ff       	callq  5b0 <puts@plt>
+    14ff:	48 8d 3d 0e 12 00 00 	lea    0x120e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1506:	e8 a5 f0 ff ff       	callq  5b0 <puts@plt>
+    150b:	48 8d 3d 02 12 00 00 	lea    0x1202(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1512:	e8 99 f0 ff ff       	callq  5b0 <puts@plt>
+    1517:	48 8d 3d f6 11 00 00 	lea    0x11f6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    151e:	e8 8d f0 ff ff       	callq  5b0 <puts@plt>
+    1523:	48 8d 3d ea 11 00 00 	lea    0x11ea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    152a:	e8 81 f0 ff ff       	callq  5b0 <puts@plt>
+    152f:	48 8d 3d de 11 00 00 	lea    0x11de(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1536:	e8 75 f0 ff ff       	callq  5b0 <puts@plt>
+    153b:	48 8d 3d d2 11 00 00 	lea    0x11d2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1542:	e8 69 f0 ff ff       	callq  5b0 <puts@plt>
+    1547:	48 8d 3d c6 11 00 00 	lea    0x11c6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    154e:	e8 5d f0 ff ff       	callq  5b0 <puts@plt>
+    1553:	48 8d 3d ba 11 00 00 	lea    0x11ba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    155a:	e8 51 f0 ff ff       	callq  5b0 <puts@plt>
+    155f:	48 8d 3d ae 11 00 00 	lea    0x11ae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1566:	e8 45 f0 ff ff       	callq  5b0 <puts@plt>
+    156b:	48 8d 3d a2 11 00 00 	lea    0x11a2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1572:	e8 39 f0 ff ff       	callq  5b0 <puts@plt>
+    1577:	48 8d 3d 96 11 00 00 	lea    0x1196(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    157e:	e8 2d f0 ff ff       	callq  5b0 <puts@plt>
+    1583:	48 8d 3d 8a 11 00 00 	lea    0x118a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    158a:	e8 21 f0 ff ff       	callq  5b0 <puts@plt>
+    158f:	48 8d 3d 7e 11 00 00 	lea    0x117e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1596:	e8 15 f0 ff ff       	callq  5b0 <puts@plt>
+    159b:	48 8d 3d 72 11 00 00 	lea    0x1172(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    15a2:	e8 09 f0 ff ff       	callq  5b0 <puts@plt>
+    15a7:	48 8d 3d 66 11 00 00 	lea    0x1166(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    15ae:	e8 fd ef ff ff       	callq  5b0 <puts@plt>
+    15b3:	48 8d 3d 5a 11 00 00 	lea    0x115a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    15ba:	e8 f1 ef ff ff       	callq  5b0 <puts@plt>
+    15bf:	48 8d 3d 4e 11 00 00 	lea    0x114e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    15c6:	e8 e5 ef ff ff       	callq  5b0 <puts@plt>
+    15cb:	48 8d 3d 42 11 00 00 	lea    0x1142(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    15d2:	e8 d9 ef ff ff       	callq  5b0 <puts@plt>
+    15d7:	48 8d 3d 36 11 00 00 	lea    0x1136(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    15de:	e8 cd ef ff ff       	callq  5b0 <puts@plt>
+    15e3:	48 8d 3d 2a 11 00 00 	lea    0x112a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    15ea:	e8 c1 ef ff ff       	callq  5b0 <puts@plt>
+    15ef:	48 8d 3d 1e 11 00 00 	lea    0x111e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    15f6:	e8 b5 ef ff ff       	callq  5b0 <puts@plt>
+    15fb:	48 8d 3d 12 11 00 00 	lea    0x1112(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1602:	e8 a9 ef ff ff       	callq  5b0 <puts@plt>
+    1607:	48 8d 3d 06 11 00 00 	lea    0x1106(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    160e:	e8 9d ef ff ff       	callq  5b0 <puts@plt>
+    1613:	48 8d 3d fa 10 00 00 	lea    0x10fa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    161a:	e8 91 ef ff ff       	callq  5b0 <puts@plt>
+    161f:	48 8d 3d ee 10 00 00 	lea    0x10ee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1626:	e8 85 ef ff ff       	callq  5b0 <puts@plt>
+    162b:	48 8d 3d e2 10 00 00 	lea    0x10e2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1632:	e8 79 ef ff ff       	callq  5b0 <puts@plt>
+    1637:	48 8d 3d d6 10 00 00 	lea    0x10d6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    163e:	e8 6d ef ff ff       	callq  5b0 <puts@plt>
+    1643:	48 8d 3d ca 10 00 00 	lea    0x10ca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    164a:	e8 61 ef ff ff       	callq  5b0 <puts@plt>
+    164f:	48 8d 3d be 10 00 00 	lea    0x10be(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1656:	e8 55 ef ff ff       	callq  5b0 <puts@plt>
+    165b:	48 8d 3d b2 10 00 00 	lea    0x10b2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1662:	e8 49 ef ff ff       	callq  5b0 <puts@plt>
+    1667:	48 8d 3d a6 10 00 00 	lea    0x10a6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    166e:	e8 3d ef ff ff       	callq  5b0 <puts@plt>
+    1673:	48 8d 3d 9a 10 00 00 	lea    0x109a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    167a:	e8 31 ef ff ff       	callq  5b0 <puts@plt>
+    167f:	48 8d 3d 8e 10 00 00 	lea    0x108e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1686:	e8 25 ef ff ff       	callq  5b0 <puts@plt>
+    168b:	48 8d 3d 82 10 00 00 	lea    0x1082(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1692:	e8 19 ef ff ff       	callq  5b0 <puts@plt>
+    1697:	48 8d 3d 76 10 00 00 	lea    0x1076(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    169e:	e8 0d ef ff ff       	callq  5b0 <puts@plt>
+    16a3:	48 8d 3d 6a 10 00 00 	lea    0x106a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    16aa:	e8 01 ef ff ff       	callq  5b0 <puts@plt>
+    16af:	48 8d 3d 5e 10 00 00 	lea    0x105e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    16b6:	e8 f5 ee ff ff       	callq  5b0 <puts@plt>
+    16bb:	48 8d 3d 52 10 00 00 	lea    0x1052(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    16c2:	e8 e9 ee ff ff       	callq  5b0 <puts@plt>
+    16c7:	48 8d 3d 46 10 00 00 	lea    0x1046(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    16ce:	e8 dd ee ff ff       	callq  5b0 <puts@plt>
+    16d3:	48 8d 3d 3a 10 00 00 	lea    0x103a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    16da:	e8 d1 ee ff ff       	callq  5b0 <puts@plt>
+    16df:	48 8d 3d 2e 10 00 00 	lea    0x102e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    16e6:	e8 c5 ee ff ff       	callq  5b0 <puts@plt>
+    16eb:	48 8d 3d 22 10 00 00 	lea    0x1022(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    16f2:	e8 b9 ee ff ff       	callq  5b0 <puts@plt>
+    16f7:	48 8d 3d 16 10 00 00 	lea    0x1016(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    16fe:	e8 ad ee ff ff       	callq  5b0 <puts@plt>
+    1703:	48 8d 3d 0a 10 00 00 	lea    0x100a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    170a:	e8 a1 ee ff ff       	callq  5b0 <puts@plt>
+    170f:	48 8d 3d fe 0f 00 00 	lea    0xffe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1716:	e8 95 ee ff ff       	callq  5b0 <puts@plt>
+    171b:	48 8d 3d f2 0f 00 00 	lea    0xff2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1722:	e8 89 ee ff ff       	callq  5b0 <puts@plt>
+    1727:	48 8d 3d e6 0f 00 00 	lea    0xfe6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    172e:	e8 7d ee ff ff       	callq  5b0 <puts@plt>
+    1733:	48 8d 3d da 0f 00 00 	lea    0xfda(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    173a:	e8 71 ee ff ff       	callq  5b0 <puts@plt>
+    173f:	48 8d 3d ce 0f 00 00 	lea    0xfce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1746:	e8 65 ee ff ff       	callq  5b0 <puts@plt>
+    174b:	48 8d 3d c2 0f 00 00 	lea    0xfc2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1752:	e8 59 ee ff ff       	callq  5b0 <puts@plt>
+    1757:	48 8d 3d b6 0f 00 00 	lea    0xfb6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    175e:	e8 4d ee ff ff       	callq  5b0 <puts@plt>
+    1763:	48 8d 3d aa 0f 00 00 	lea    0xfaa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    176a:	e8 41 ee ff ff       	callq  5b0 <puts@plt>
+    176f:	48 8d 3d 9e 0f 00 00 	lea    0xf9e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1776:	e8 35 ee ff ff       	callq  5b0 <puts@plt>
+    177b:	48 8d 3d 92 0f 00 00 	lea    0xf92(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1782:	e8 29 ee ff ff       	callq  5b0 <puts@plt>
+    1787:	48 8d 3d 86 0f 00 00 	lea    0xf86(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    178e:	e8 1d ee ff ff       	callq  5b0 <puts@plt>
+    1793:	48 8d 3d 7a 0f 00 00 	lea    0xf7a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    179a:	e8 11 ee ff ff       	callq  5b0 <puts@plt>
+    179f:	48 8d 3d 6e 0f 00 00 	lea    0xf6e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    17a6:	e8 05 ee ff ff       	callq  5b0 <puts@plt>
+    17ab:	48 8d 3d 62 0f 00 00 	lea    0xf62(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    17b2:	e8 f9 ed ff ff       	callq  5b0 <puts@plt>
+    17b7:	48 8d 3d 56 0f 00 00 	lea    0xf56(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    17be:	e8 ed ed ff ff       	callq  5b0 <puts@plt>
+    17c3:	48 8d 3d 4a 0f 00 00 	lea    0xf4a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    17ca:	e8 e1 ed ff ff       	callq  5b0 <puts@plt>
+    17cf:	48 8d 3d 3e 0f 00 00 	lea    0xf3e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    17d6:	e8 d5 ed ff ff       	callq  5b0 <puts@plt>
+    17db:	48 8d 3d 32 0f 00 00 	lea    0xf32(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    17e2:	e8 c9 ed ff ff       	callq  5b0 <puts@plt>
+    17e7:	48 8d 3d 26 0f 00 00 	lea    0xf26(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    17ee:	e8 bd ed ff ff       	callq  5b0 <puts@plt>
+    17f3:	48 8d 3d 1a 0f 00 00 	lea    0xf1a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    17fa:	e8 b1 ed ff ff       	callq  5b0 <puts@plt>
+    17ff:	48 8d 3d 0e 0f 00 00 	lea    0xf0e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1806:	e8 a5 ed ff ff       	callq  5b0 <puts@plt>
+    180b:	48 8d 3d 02 0f 00 00 	lea    0xf02(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1812:	e8 99 ed ff ff       	callq  5b0 <puts@plt>
+    1817:	48 8d 3d f6 0e 00 00 	lea    0xef6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    181e:	e8 8d ed ff ff       	callq  5b0 <puts@plt>
+    1823:	48 8d 3d ea 0e 00 00 	lea    0xeea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    182a:	e8 81 ed ff ff       	callq  5b0 <puts@plt>
+    182f:	48 8d 3d de 0e 00 00 	lea    0xede(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1836:	e8 75 ed ff ff       	callq  5b0 <puts@plt>
+    183b:	48 8d 3d d2 0e 00 00 	lea    0xed2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1842:	e8 69 ed ff ff       	callq  5b0 <puts@plt>
+    1847:	48 8d 3d c6 0e 00 00 	lea    0xec6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    184e:	e8 5d ed ff ff       	callq  5b0 <puts@plt>
+    1853:	48 8d 3d ba 0e 00 00 	lea    0xeba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    185a:	e8 51 ed ff ff       	callq  5b0 <puts@plt>
+    185f:	48 8d 3d ae 0e 00 00 	lea    0xeae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1866:	e8 45 ed ff ff       	callq  5b0 <puts@plt>
+    186b:	48 8d 3d a2 0e 00 00 	lea    0xea2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1872:	e8 39 ed ff ff       	callq  5b0 <puts@plt>
+    1877:	48 8d 3d 96 0e 00 00 	lea    0xe96(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    187e:	e8 2d ed ff ff       	callq  5b0 <puts@plt>
+    1883:	48 8d 3d 8a 0e 00 00 	lea    0xe8a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    188a:	e8 21 ed ff ff       	callq  5b0 <puts@plt>
+    188f:	48 8d 3d 7e 0e 00 00 	lea    0xe7e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1896:	e8 15 ed ff ff       	callq  5b0 <puts@plt>
+    189b:	48 8d 3d 72 0e 00 00 	lea    0xe72(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    18a2:	e8 09 ed ff ff       	callq  5b0 <puts@plt>
+    18a7:	48 8d 3d 66 0e 00 00 	lea    0xe66(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    18ae:	e8 fd ec ff ff       	callq  5b0 <puts@plt>
+    18b3:	48 8d 3d 5a 0e 00 00 	lea    0xe5a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    18ba:	e8 f1 ec ff ff       	callq  5b0 <puts@plt>
+    18bf:	48 8d 3d 4e 0e 00 00 	lea    0xe4e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    18c6:	e8 e5 ec ff ff       	callq  5b0 <puts@plt>
+    18cb:	48 8d 3d 42 0e 00 00 	lea    0xe42(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    18d2:	e8 d9 ec ff ff       	callq  5b0 <puts@plt>
+    18d7:	48 8d 3d 36 0e 00 00 	lea    0xe36(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    18de:	e8 cd ec ff ff       	callq  5b0 <puts@plt>
+    18e3:	48 8d 3d 2a 0e 00 00 	lea    0xe2a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    18ea:	e8 c1 ec ff ff       	callq  5b0 <puts@plt>
+    18ef:	48 8d 3d 1e 0e 00 00 	lea    0xe1e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    18f6:	e8 b5 ec ff ff       	callq  5b0 <puts@plt>
+    18fb:	48 8d 3d 12 0e 00 00 	lea    0xe12(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1902:	e8 a9 ec ff ff       	callq  5b0 <puts@plt>
+    1907:	48 8d 3d 06 0e 00 00 	lea    0xe06(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    190e:	e8 9d ec ff ff       	callq  5b0 <puts@plt>
+    1913:	48 8d 3d fa 0d 00 00 	lea    0xdfa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    191a:	e8 91 ec ff ff       	callq  5b0 <puts@plt>
+    191f:	48 8d 3d ee 0d 00 00 	lea    0xdee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1926:	e8 85 ec ff ff       	callq  5b0 <puts@plt>
+    192b:	48 8d 3d e2 0d 00 00 	lea    0xde2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1932:	e8 79 ec ff ff       	callq  5b0 <puts@plt>
+    1937:	48 8d 3d d6 0d 00 00 	lea    0xdd6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    193e:	e8 6d ec ff ff       	callq  5b0 <puts@plt>
+    1943:	48 8d 3d ca 0d 00 00 	lea    0xdca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    194a:	e8 61 ec ff ff       	callq  5b0 <puts@plt>
+    194f:	48 8d 3d be 0d 00 00 	lea    0xdbe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1956:	e8 55 ec ff ff       	callq  5b0 <puts@plt>
+    195b:	48 8d 3d b2 0d 00 00 	lea    0xdb2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1962:	e8 49 ec ff ff       	callq  5b0 <puts@plt>
+    1967:	48 8d 3d a6 0d 00 00 	lea    0xda6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    196e:	e8 3d ec ff ff       	callq  5b0 <puts@plt>
+    1973:	48 8d 3d 9a 0d 00 00 	lea    0xd9a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    197a:	e8 31 ec ff ff       	callq  5b0 <puts@plt>
+    197f:	48 8d 3d 8e 0d 00 00 	lea    0xd8e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1986:	e8 25 ec ff ff       	callq  5b0 <puts@plt>
+    198b:	48 8d 3d 82 0d 00 00 	lea    0xd82(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1992:	e8 19 ec ff ff       	callq  5b0 <puts@plt>
+    1997:	48 8d 3d 76 0d 00 00 	lea    0xd76(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    199e:	e8 0d ec ff ff       	callq  5b0 <puts@plt>
+    19a3:	48 8d 3d 6a 0d 00 00 	lea    0xd6a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    19aa:	e8 01 ec ff ff       	callq  5b0 <puts@plt>
+    19af:	48 8d 3d 5e 0d 00 00 	lea    0xd5e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    19b6:	e8 f5 eb ff ff       	callq  5b0 <puts@plt>
+    19bb:	48 8d 3d 52 0d 00 00 	lea    0xd52(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    19c2:	e8 e9 eb ff ff       	callq  5b0 <puts@plt>
+    19c7:	48 8d 3d 46 0d 00 00 	lea    0xd46(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    19ce:	e8 dd eb ff ff       	callq  5b0 <puts@plt>
+    19d3:	48 8d 3d 3a 0d 00 00 	lea    0xd3a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    19da:	e8 d1 eb ff ff       	callq  5b0 <puts@plt>
+    19df:	48 8d 3d 2e 0d 00 00 	lea    0xd2e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    19e6:	e8 c5 eb ff ff       	callq  5b0 <puts@plt>
+    19eb:	48 8d 3d 22 0d 00 00 	lea    0xd22(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    19f2:	e8 b9 eb ff ff       	callq  5b0 <puts@plt>
+    19f7:	48 8d 3d 16 0d 00 00 	lea    0xd16(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    19fe:	e8 ad eb ff ff       	callq  5b0 <puts@plt>
+    1a03:	48 8d 3d 0a 0d 00 00 	lea    0xd0a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a0a:	e8 a1 eb ff ff       	callq  5b0 <puts@plt>
+    1a0f:	48 8d 3d fe 0c 00 00 	lea    0xcfe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a16:	e8 95 eb ff ff       	callq  5b0 <puts@plt>
+    1a1b:	48 8d 3d f2 0c 00 00 	lea    0xcf2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a22:	e8 89 eb ff ff       	callq  5b0 <puts@plt>
+    1a27:	48 8d 3d e6 0c 00 00 	lea    0xce6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a2e:	e8 7d eb ff ff       	callq  5b0 <puts@plt>
+    1a33:	48 8d 3d da 0c 00 00 	lea    0xcda(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a3a:	e8 71 eb ff ff       	callq  5b0 <puts@plt>
+    1a3f:	48 8d 3d ce 0c 00 00 	lea    0xcce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a46:	e8 65 eb ff ff       	callq  5b0 <puts@plt>
+    1a4b:	48 8d 3d c2 0c 00 00 	lea    0xcc2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a52:	e8 59 eb ff ff       	callq  5b0 <puts@plt>
+    1a57:	48 8d 3d b6 0c 00 00 	lea    0xcb6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a5e:	e8 4d eb ff ff       	callq  5b0 <puts@plt>
+    1a63:	48 8d 3d aa 0c 00 00 	lea    0xcaa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a6a:	e8 41 eb ff ff       	callq  5b0 <puts@plt>
+    1a6f:	48 8d 3d 9e 0c 00 00 	lea    0xc9e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a76:	e8 35 eb ff ff       	callq  5b0 <puts@plt>
+    1a7b:	48 8d 3d 92 0c 00 00 	lea    0xc92(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a82:	e8 29 eb ff ff       	callq  5b0 <puts@plt>
+    1a87:	48 8d 3d 86 0c 00 00 	lea    0xc86(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a8e:	e8 1d eb ff ff       	callq  5b0 <puts@plt>
+    1a93:	48 8d 3d 7a 0c 00 00 	lea    0xc7a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1a9a:	e8 11 eb ff ff       	callq  5b0 <puts@plt>
+    1a9f:	48 8d 3d 6e 0c 00 00 	lea    0xc6e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1aa6:	e8 05 eb ff ff       	callq  5b0 <puts@plt>
+    1aab:	48 8d 3d 62 0c 00 00 	lea    0xc62(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ab2:	e8 f9 ea ff ff       	callq  5b0 <puts@plt>
+    1ab7:	48 8d 3d 56 0c 00 00 	lea    0xc56(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1abe:	e8 ed ea ff ff       	callq  5b0 <puts@plt>
+    1ac3:	48 8d 3d 4a 0c 00 00 	lea    0xc4a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1aca:	e8 e1 ea ff ff       	callq  5b0 <puts@plt>
+    1acf:	48 8d 3d 3e 0c 00 00 	lea    0xc3e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ad6:	e8 d5 ea ff ff       	callq  5b0 <puts@plt>
+    1adb:	48 8d 3d 32 0c 00 00 	lea    0xc32(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ae2:	e8 c9 ea ff ff       	callq  5b0 <puts@plt>
+    1ae7:	48 8d 3d 26 0c 00 00 	lea    0xc26(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1aee:	e8 bd ea ff ff       	callq  5b0 <puts@plt>
+    1af3:	48 8d 3d 1a 0c 00 00 	lea    0xc1a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1afa:	e8 b1 ea ff ff       	callq  5b0 <puts@plt>
+    1aff:	48 8d 3d 0e 0c 00 00 	lea    0xc0e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b06:	e8 a5 ea ff ff       	callq  5b0 <puts@plt>
+    1b0b:	48 8d 3d 02 0c 00 00 	lea    0xc02(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b12:	e8 99 ea ff ff       	callq  5b0 <puts@plt>
+    1b17:	48 8d 3d f6 0b 00 00 	lea    0xbf6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b1e:	e8 8d ea ff ff       	callq  5b0 <puts@plt>
+    1b23:	48 8d 3d ea 0b 00 00 	lea    0xbea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b2a:	e8 81 ea ff ff       	callq  5b0 <puts@plt>
+    1b2f:	48 8d 3d de 0b 00 00 	lea    0xbde(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b36:	e8 75 ea ff ff       	callq  5b0 <puts@plt>
+    1b3b:	48 8d 3d d2 0b 00 00 	lea    0xbd2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b42:	e8 69 ea ff ff       	callq  5b0 <puts@plt>
+    1b47:	48 8d 3d c6 0b 00 00 	lea    0xbc6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b4e:	e8 5d ea ff ff       	callq  5b0 <puts@plt>
+    1b53:	48 8d 3d ba 0b 00 00 	lea    0xbba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b5a:	e8 51 ea ff ff       	callq  5b0 <puts@plt>
+    1b5f:	48 8d 3d ae 0b 00 00 	lea    0xbae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b66:	e8 45 ea ff ff       	callq  5b0 <puts@plt>
+    1b6b:	48 8d 3d a2 0b 00 00 	lea    0xba2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b72:	e8 39 ea ff ff       	callq  5b0 <puts@plt>
+    1b77:	48 8d 3d 96 0b 00 00 	lea    0xb96(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b7e:	e8 2d ea ff ff       	callq  5b0 <puts@plt>
+    1b83:	48 8d 3d 8a 0b 00 00 	lea    0xb8a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b8a:	e8 21 ea ff ff       	callq  5b0 <puts@plt>
+    1b8f:	48 8d 3d 7e 0b 00 00 	lea    0xb7e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1b96:	e8 15 ea ff ff       	callq  5b0 <puts@plt>
+    1b9b:	48 8d 3d 72 0b 00 00 	lea    0xb72(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ba2:	e8 09 ea ff ff       	callq  5b0 <puts@plt>
+    1ba7:	48 8d 3d 66 0b 00 00 	lea    0xb66(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1bae:	e8 fd e9 ff ff       	callq  5b0 <puts@plt>
+    1bb3:	48 8d 3d 5a 0b 00 00 	lea    0xb5a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1bba:	e8 f1 e9 ff ff       	callq  5b0 <puts@plt>
+    1bbf:	48 8d 3d 4e 0b 00 00 	lea    0xb4e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1bc6:	e8 e5 e9 ff ff       	callq  5b0 <puts@plt>
+    1bcb:	48 8d 3d 42 0b 00 00 	lea    0xb42(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1bd2:	e8 d9 e9 ff ff       	callq  5b0 <puts@plt>
+    1bd7:	48 8d 3d 36 0b 00 00 	lea    0xb36(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1bde:	e8 cd e9 ff ff       	callq  5b0 <puts@plt>
+    1be3:	48 8d 3d 2a 0b 00 00 	lea    0xb2a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1bea:	e8 c1 e9 ff ff       	callq  5b0 <puts@plt>
+    1bef:	48 8d 3d 1e 0b 00 00 	lea    0xb1e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1bf6:	e8 b5 e9 ff ff       	callq  5b0 <puts@plt>
+    1bfb:	48 8d 3d 12 0b 00 00 	lea    0xb12(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c02:	e8 a9 e9 ff ff       	callq  5b0 <puts@plt>
+    1c07:	48 8d 3d 06 0b 00 00 	lea    0xb06(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c0e:	e8 9d e9 ff ff       	callq  5b0 <puts@plt>
+    1c13:	48 8d 3d fa 0a 00 00 	lea    0xafa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c1a:	e8 91 e9 ff ff       	callq  5b0 <puts@plt>
+    1c1f:	48 8d 3d ee 0a 00 00 	lea    0xaee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c26:	e8 85 e9 ff ff       	callq  5b0 <puts@plt>
+    1c2b:	48 8d 3d e2 0a 00 00 	lea    0xae2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c32:	e8 79 e9 ff ff       	callq  5b0 <puts@plt>
+    1c37:	48 8d 3d d6 0a 00 00 	lea    0xad6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c3e:	e8 6d e9 ff ff       	callq  5b0 <puts@plt>
+    1c43:	48 8d 3d ca 0a 00 00 	lea    0xaca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c4a:	e8 61 e9 ff ff       	callq  5b0 <puts@plt>
+    1c4f:	48 8d 3d be 0a 00 00 	lea    0xabe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c56:	e8 55 e9 ff ff       	callq  5b0 <puts@plt>
+    1c5b:	48 8d 3d b2 0a 00 00 	lea    0xab2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c62:	e8 49 e9 ff ff       	callq  5b0 <puts@plt>
+    1c67:	48 8d 3d a6 0a 00 00 	lea    0xaa6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c6e:	e8 3d e9 ff ff       	callq  5b0 <puts@plt>
+    1c73:	48 8d 3d 9a 0a 00 00 	lea    0xa9a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c7a:	e8 31 e9 ff ff       	callq  5b0 <puts@plt>
+    1c7f:	48 8d 3d 8e 0a 00 00 	lea    0xa8e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c86:	e8 25 e9 ff ff       	callq  5b0 <puts@plt>
+    1c8b:	48 8d 3d 82 0a 00 00 	lea    0xa82(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c92:	e8 19 e9 ff ff       	callq  5b0 <puts@plt>
+    1c97:	48 8d 3d 76 0a 00 00 	lea    0xa76(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1c9e:	e8 0d e9 ff ff       	callq  5b0 <puts@plt>
+    1ca3:	48 8d 3d 6a 0a 00 00 	lea    0xa6a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1caa:	e8 01 e9 ff ff       	callq  5b0 <puts@plt>
+    1caf:	48 8d 3d 5e 0a 00 00 	lea    0xa5e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1cb6:	e8 f5 e8 ff ff       	callq  5b0 <puts@plt>
+    1cbb:	48 8d 3d 52 0a 00 00 	lea    0xa52(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1cc2:	e8 e9 e8 ff ff       	callq  5b0 <puts@plt>
+    1cc7:	48 8d 3d 46 0a 00 00 	lea    0xa46(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1cce:	e8 dd e8 ff ff       	callq  5b0 <puts@plt>
+    1cd3:	48 8d 3d 3a 0a 00 00 	lea    0xa3a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1cda:	e8 d1 e8 ff ff       	callq  5b0 <puts@plt>
+    1cdf:	48 8d 3d 2e 0a 00 00 	lea    0xa2e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ce6:	e8 c5 e8 ff ff       	callq  5b0 <puts@plt>
+    1ceb:	48 8d 3d 22 0a 00 00 	lea    0xa22(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1cf2:	e8 b9 e8 ff ff       	callq  5b0 <puts@plt>
+    1cf7:	48 8d 3d 16 0a 00 00 	lea    0xa16(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1cfe:	e8 ad e8 ff ff       	callq  5b0 <puts@plt>
+    1d03:	48 8d 3d 0a 0a 00 00 	lea    0xa0a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d0a:	e8 a1 e8 ff ff       	callq  5b0 <puts@plt>
+    1d0f:	48 8d 3d fe 09 00 00 	lea    0x9fe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d16:	e8 95 e8 ff ff       	callq  5b0 <puts@plt>
+    1d1b:	48 8d 3d f2 09 00 00 	lea    0x9f2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d22:	e8 89 e8 ff ff       	callq  5b0 <puts@plt>
+    1d27:	48 8d 3d e6 09 00 00 	lea    0x9e6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d2e:	e8 7d e8 ff ff       	callq  5b0 <puts@plt>
+    1d33:	48 8d 3d da 09 00 00 	lea    0x9da(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d3a:	e8 71 e8 ff ff       	callq  5b0 <puts@plt>
+    1d3f:	48 8d 3d ce 09 00 00 	lea    0x9ce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d46:	e8 65 e8 ff ff       	callq  5b0 <puts@plt>
+    1d4b:	48 8d 3d c2 09 00 00 	lea    0x9c2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d52:	e8 59 e8 ff ff       	callq  5b0 <puts@plt>
+    1d57:	48 8d 3d b6 09 00 00 	lea    0x9b6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d5e:	e8 4d e8 ff ff       	callq  5b0 <puts@plt>
+    1d63:	48 8d 3d aa 09 00 00 	lea    0x9aa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d6a:	e8 41 e8 ff ff       	callq  5b0 <puts@plt>
+    1d6f:	48 8d 3d 9e 09 00 00 	lea    0x99e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d76:	e8 35 e8 ff ff       	callq  5b0 <puts@plt>
+    1d7b:	48 8d 3d 92 09 00 00 	lea    0x992(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d82:	e8 29 e8 ff ff       	callq  5b0 <puts@plt>
+    1d87:	48 8d 3d 86 09 00 00 	lea    0x986(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d8e:	e8 1d e8 ff ff       	callq  5b0 <puts@plt>
+    1d93:	48 8d 3d 7a 09 00 00 	lea    0x97a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1d9a:	e8 11 e8 ff ff       	callq  5b0 <puts@plt>
+    1d9f:	48 8d 3d 6e 09 00 00 	lea    0x96e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1da6:	e8 05 e8 ff ff       	callq  5b0 <puts@plt>
+    1dab:	48 8d 3d 62 09 00 00 	lea    0x962(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1db2:	e8 f9 e7 ff ff       	callq  5b0 <puts@plt>
+    1db7:	48 8d 3d 56 09 00 00 	lea    0x956(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1dbe:	e8 ed e7 ff ff       	callq  5b0 <puts@plt>
+    1dc3:	48 8d 3d 4a 09 00 00 	lea    0x94a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1dca:	e8 e1 e7 ff ff       	callq  5b0 <puts@plt>
+    1dcf:	48 8d 3d 3e 09 00 00 	lea    0x93e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1dd6:	e8 d5 e7 ff ff       	callq  5b0 <puts@plt>
+    1ddb:	48 8d 3d 32 09 00 00 	lea    0x932(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1de2:	e8 c9 e7 ff ff       	callq  5b0 <puts@plt>
+    1de7:	48 8d 3d 26 09 00 00 	lea    0x926(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1dee:	e8 bd e7 ff ff       	callq  5b0 <puts@plt>
+    1df3:	48 8d 3d 1a 09 00 00 	lea    0x91a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1dfa:	e8 b1 e7 ff ff       	callq  5b0 <puts@plt>
+    1dff:	48 8d 3d 0e 09 00 00 	lea    0x90e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e06:	e8 a5 e7 ff ff       	callq  5b0 <puts@plt>
+    1e0b:	48 8d 3d 02 09 00 00 	lea    0x902(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e12:	e8 99 e7 ff ff       	callq  5b0 <puts@plt>
+    1e17:	48 8d 3d f6 08 00 00 	lea    0x8f6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e1e:	e8 8d e7 ff ff       	callq  5b0 <puts@plt>
+    1e23:	48 8d 3d ea 08 00 00 	lea    0x8ea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e2a:	e8 81 e7 ff ff       	callq  5b0 <puts@plt>
+    1e2f:	48 8d 3d de 08 00 00 	lea    0x8de(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e36:	e8 75 e7 ff ff       	callq  5b0 <puts@plt>
+    1e3b:	48 8d 3d d2 08 00 00 	lea    0x8d2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e42:	e8 69 e7 ff ff       	callq  5b0 <puts@plt>
+    1e47:	48 8d 3d c6 08 00 00 	lea    0x8c6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e4e:	e8 5d e7 ff ff       	callq  5b0 <puts@plt>
+    1e53:	48 8d 3d ba 08 00 00 	lea    0x8ba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e5a:	e8 51 e7 ff ff       	callq  5b0 <puts@plt>
+    1e5f:	48 8d 3d ae 08 00 00 	lea    0x8ae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e66:	e8 45 e7 ff ff       	callq  5b0 <puts@plt>
+    1e6b:	48 8d 3d a2 08 00 00 	lea    0x8a2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e72:	e8 39 e7 ff ff       	callq  5b0 <puts@plt>
+    1e77:	48 8d 3d 96 08 00 00 	lea    0x896(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e7e:	e8 2d e7 ff ff       	callq  5b0 <puts@plt>
+    1e83:	48 8d 3d 8a 08 00 00 	lea    0x88a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e8a:	e8 21 e7 ff ff       	callq  5b0 <puts@plt>
+    1e8f:	48 8d 3d 7e 08 00 00 	lea    0x87e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1e96:	e8 15 e7 ff ff       	callq  5b0 <puts@plt>
+    1e9b:	48 8d 3d 72 08 00 00 	lea    0x872(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ea2:	e8 09 e7 ff ff       	callq  5b0 <puts@plt>
+    1ea7:	48 8d 3d 66 08 00 00 	lea    0x866(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1eae:	e8 fd e6 ff ff       	callq  5b0 <puts@plt>
+    1eb3:	48 8d 3d 5a 08 00 00 	lea    0x85a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1eba:	e8 f1 e6 ff ff       	callq  5b0 <puts@plt>
+    1ebf:	48 8d 3d 4e 08 00 00 	lea    0x84e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ec6:	e8 e5 e6 ff ff       	callq  5b0 <puts@plt>
+    1ecb:	48 8d 3d 42 08 00 00 	lea    0x842(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ed2:	e8 d9 e6 ff ff       	callq  5b0 <puts@plt>
+    1ed7:	48 8d 3d 36 08 00 00 	lea    0x836(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ede:	e8 cd e6 ff ff       	callq  5b0 <puts@plt>
+    1ee3:	48 8d 3d 2a 08 00 00 	lea    0x82a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1eea:	e8 c1 e6 ff ff       	callq  5b0 <puts@plt>
+    1eef:	48 8d 3d 1e 08 00 00 	lea    0x81e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ef6:	e8 b5 e6 ff ff       	callq  5b0 <puts@plt>
+    1efb:	48 8d 3d 12 08 00 00 	lea    0x812(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f02:	e8 a9 e6 ff ff       	callq  5b0 <puts@plt>
+    1f07:	48 8d 3d 06 08 00 00 	lea    0x806(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f0e:	e8 9d e6 ff ff       	callq  5b0 <puts@plt>
+    1f13:	48 8d 3d fa 07 00 00 	lea    0x7fa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f1a:	e8 91 e6 ff ff       	callq  5b0 <puts@plt>
+    1f1f:	48 8d 3d ee 07 00 00 	lea    0x7ee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f26:	e8 85 e6 ff ff       	callq  5b0 <puts@plt>
+    1f2b:	48 8d 3d e2 07 00 00 	lea    0x7e2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f32:	e8 79 e6 ff ff       	callq  5b0 <puts@plt>
+    1f37:	48 8d 3d d6 07 00 00 	lea    0x7d6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f3e:	e8 6d e6 ff ff       	callq  5b0 <puts@plt>
+    1f43:	48 8d 3d ca 07 00 00 	lea    0x7ca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f4a:	e8 61 e6 ff ff       	callq  5b0 <puts@plt>
+    1f4f:	48 8d 3d be 07 00 00 	lea    0x7be(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f56:	e8 55 e6 ff ff       	callq  5b0 <puts@plt>
+    1f5b:	48 8d 3d b2 07 00 00 	lea    0x7b2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f62:	e8 49 e6 ff ff       	callq  5b0 <puts@plt>
+    1f67:	48 8d 3d a6 07 00 00 	lea    0x7a6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f6e:	e8 3d e6 ff ff       	callq  5b0 <puts@plt>
+    1f73:	48 8d 3d 9a 07 00 00 	lea    0x79a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f7a:	e8 31 e6 ff ff       	callq  5b0 <puts@plt>
+    1f7f:	48 8d 3d 8e 07 00 00 	lea    0x78e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f86:	e8 25 e6 ff ff       	callq  5b0 <puts@plt>
+    1f8b:	48 8d 3d 82 07 00 00 	lea    0x782(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f92:	e8 19 e6 ff ff       	callq  5b0 <puts@plt>
+    1f97:	48 8d 3d 76 07 00 00 	lea    0x776(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1f9e:	e8 0d e6 ff ff       	callq  5b0 <puts@plt>
+    1fa3:	48 8d 3d 6a 07 00 00 	lea    0x76a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1faa:	e8 01 e6 ff ff       	callq  5b0 <puts@plt>
+    1faf:	48 8d 3d 5e 07 00 00 	lea    0x75e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1fb6:	e8 f5 e5 ff ff       	callq  5b0 <puts@plt>
+    1fbb:	48 8d 3d 52 07 00 00 	lea    0x752(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1fc2:	e8 e9 e5 ff ff       	callq  5b0 <puts@plt>
+    1fc7:	48 8d 3d 46 07 00 00 	lea    0x746(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1fce:	e8 dd e5 ff ff       	callq  5b0 <puts@plt>
+    1fd3:	48 8d 3d 3a 07 00 00 	lea    0x73a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1fda:	e8 d1 e5 ff ff       	callq  5b0 <puts@plt>
+    1fdf:	48 8d 3d 2e 07 00 00 	lea    0x72e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1fe6:	e8 c5 e5 ff ff       	callq  5b0 <puts@plt>
+    1feb:	48 8d 3d 22 07 00 00 	lea    0x722(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ff2:	e8 b9 e5 ff ff       	callq  5b0 <puts@plt>
+    1ff7:	48 8d 3d 16 07 00 00 	lea    0x716(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    1ffe:	e8 ad e5 ff ff       	callq  5b0 <puts@plt>
+    2003:	48 8d 3d 0a 07 00 00 	lea    0x70a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    200a:	e8 a1 e5 ff ff       	callq  5b0 <puts@plt>
+    200f:	48 8d 3d fe 06 00 00 	lea    0x6fe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2016:	e8 95 e5 ff ff       	callq  5b0 <puts@plt>
+    201b:	48 8d 3d f2 06 00 00 	lea    0x6f2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2022:	e8 89 e5 ff ff       	callq  5b0 <puts@plt>
+    2027:	48 8d 3d e6 06 00 00 	lea    0x6e6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    202e:	e8 7d e5 ff ff       	callq  5b0 <puts@plt>
+    2033:	48 8d 3d da 06 00 00 	lea    0x6da(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    203a:	e8 71 e5 ff ff       	callq  5b0 <puts@plt>
+    203f:	48 8d 3d ce 06 00 00 	lea    0x6ce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2046:	e8 65 e5 ff ff       	callq  5b0 <puts@plt>
+    204b:	48 8d 3d c2 06 00 00 	lea    0x6c2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2052:	e8 59 e5 ff ff       	callq  5b0 <puts@plt>
+    2057:	48 8d 3d b6 06 00 00 	lea    0x6b6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    205e:	e8 4d e5 ff ff       	callq  5b0 <puts@plt>
+    2063:	48 8d 3d aa 06 00 00 	lea    0x6aa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    206a:	e8 41 e5 ff ff       	callq  5b0 <puts@plt>
+    206f:	48 8d 3d 9e 06 00 00 	lea    0x69e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2076:	e8 35 e5 ff ff       	callq  5b0 <puts@plt>
+    207b:	48 8d 3d 92 06 00 00 	lea    0x692(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2082:	e8 29 e5 ff ff       	callq  5b0 <puts@plt>
+    2087:	48 8d 3d 86 06 00 00 	lea    0x686(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    208e:	e8 1d e5 ff ff       	callq  5b0 <puts@plt>
+    2093:	48 8d 3d 7a 06 00 00 	lea    0x67a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    209a:	e8 11 e5 ff ff       	callq  5b0 <puts@plt>
+    209f:	48 8d 3d 6e 06 00 00 	lea    0x66e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    20a6:	e8 05 e5 ff ff       	callq  5b0 <puts@plt>
+    20ab:	48 8d 3d 62 06 00 00 	lea    0x662(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    20b2:	e8 f9 e4 ff ff       	callq  5b0 <puts@plt>
+    20b7:	48 8d 3d 56 06 00 00 	lea    0x656(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    20be:	e8 ed e4 ff ff       	callq  5b0 <puts@plt>
+    20c3:	48 8d 3d 4a 06 00 00 	lea    0x64a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    20ca:	e8 e1 e4 ff ff       	callq  5b0 <puts@plt>
+    20cf:	48 8d 3d 3e 06 00 00 	lea    0x63e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    20d6:	e8 d5 e4 ff ff       	callq  5b0 <puts@plt>
+    20db:	48 8d 3d 32 06 00 00 	lea    0x632(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    20e2:	e8 c9 e4 ff ff       	callq  5b0 <puts@plt>
+    20e7:	48 8d 3d 26 06 00 00 	lea    0x626(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    20ee:	e8 bd e4 ff ff       	callq  5b0 <puts@plt>
+    20f3:	48 8d 3d 1a 06 00 00 	lea    0x61a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    20fa:	e8 b1 e4 ff ff       	callq  5b0 <puts@plt>
+    20ff:	48 8d 3d 0e 06 00 00 	lea    0x60e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2106:	e8 a5 e4 ff ff       	callq  5b0 <puts@plt>
+    210b:	48 8d 3d 02 06 00 00 	lea    0x602(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2112:	e8 99 e4 ff ff       	callq  5b0 <puts@plt>
+    2117:	48 8d 3d f6 05 00 00 	lea    0x5f6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    211e:	e8 8d e4 ff ff       	callq  5b0 <puts@plt>
+    2123:	48 8d 3d ea 05 00 00 	lea    0x5ea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    212a:	e8 81 e4 ff ff       	callq  5b0 <puts@plt>
+    212f:	48 8d 3d de 05 00 00 	lea    0x5de(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2136:	e8 75 e4 ff ff       	callq  5b0 <puts@plt>
+    213b:	48 8d 3d d2 05 00 00 	lea    0x5d2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2142:	e8 69 e4 ff ff       	callq  5b0 <puts@plt>
+    2147:	48 8d 3d c6 05 00 00 	lea    0x5c6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    214e:	e8 5d e4 ff ff       	callq  5b0 <puts@plt>
+    2153:	48 8d 3d ba 05 00 00 	lea    0x5ba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    215a:	e8 51 e4 ff ff       	callq  5b0 <puts@plt>
+    215f:	48 8d 3d ae 05 00 00 	lea    0x5ae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2166:	e8 45 e4 ff ff       	callq  5b0 <puts@plt>
+    216b:	48 8d 3d a2 05 00 00 	lea    0x5a2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2172:	e8 39 e4 ff ff       	callq  5b0 <puts@plt>
+    2177:	48 8d 3d 96 05 00 00 	lea    0x596(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    217e:	e8 2d e4 ff ff       	callq  5b0 <puts@plt>
+    2183:	48 8d 3d 8a 05 00 00 	lea    0x58a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    218a:	e8 21 e4 ff ff       	callq  5b0 <puts@plt>
+    218f:	48 8d 3d 7e 05 00 00 	lea    0x57e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2196:	e8 15 e4 ff ff       	callq  5b0 <puts@plt>
+    219b:	48 8d 3d 72 05 00 00 	lea    0x572(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    21a2:	e8 09 e4 ff ff       	callq  5b0 <puts@plt>
+    21a7:	48 8d 3d 66 05 00 00 	lea    0x566(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    21ae:	e8 fd e3 ff ff       	callq  5b0 <puts@plt>
+    21b3:	48 8d 3d 5a 05 00 00 	lea    0x55a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    21ba:	e8 f1 e3 ff ff       	callq  5b0 <puts@plt>
+    21bf:	48 8d 3d 4e 05 00 00 	lea    0x54e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    21c6:	e8 e5 e3 ff ff       	callq  5b0 <puts@plt>
+    21cb:	48 8d 3d 42 05 00 00 	lea    0x542(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    21d2:	e8 d9 e3 ff ff       	callq  5b0 <puts@plt>
+    21d7:	48 8d 3d 36 05 00 00 	lea    0x536(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    21de:	e8 cd e3 ff ff       	callq  5b0 <puts@plt>
+    21e3:	48 8d 3d 2a 05 00 00 	lea    0x52a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    21ea:	e8 c1 e3 ff ff       	callq  5b0 <puts@plt>
+    21ef:	48 8d 3d 1e 05 00 00 	lea    0x51e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    21f6:	e8 b5 e3 ff ff       	callq  5b0 <puts@plt>
+    21fb:	48 8d 3d 12 05 00 00 	lea    0x512(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2202:	e8 a9 e3 ff ff       	callq  5b0 <puts@plt>
+    2207:	48 8d 3d 06 05 00 00 	lea    0x506(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    220e:	e8 9d e3 ff ff       	callq  5b0 <puts@plt>
+    2213:	48 8d 3d fa 04 00 00 	lea    0x4fa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    221a:	e8 91 e3 ff ff       	callq  5b0 <puts@plt>
+    221f:	48 8d 3d ee 04 00 00 	lea    0x4ee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2226:	e8 85 e3 ff ff       	callq  5b0 <puts@plt>
+    222b:	48 8d 3d e2 04 00 00 	lea    0x4e2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2232:	e8 79 e3 ff ff       	callq  5b0 <puts@plt>
+    2237:	48 8d 3d d6 04 00 00 	lea    0x4d6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    223e:	e8 6d e3 ff ff       	callq  5b0 <puts@plt>
+    2243:	48 8d 3d ca 04 00 00 	lea    0x4ca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    224a:	e8 61 e3 ff ff       	callq  5b0 <puts@plt>
+    224f:	48 8d 3d be 04 00 00 	lea    0x4be(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2256:	e8 55 e3 ff ff       	callq  5b0 <puts@plt>
+    225b:	48 8d 3d b2 04 00 00 	lea    0x4b2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2262:	e8 49 e3 ff ff       	callq  5b0 <puts@plt>
+    2267:	48 8d 3d a6 04 00 00 	lea    0x4a6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    226e:	e8 3d e3 ff ff       	callq  5b0 <puts@plt>
+    2273:	48 8d 3d 9a 04 00 00 	lea    0x49a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    227a:	e8 31 e3 ff ff       	callq  5b0 <puts@plt>
+    227f:	48 8d 3d 8e 04 00 00 	lea    0x48e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2286:	e8 25 e3 ff ff       	callq  5b0 <puts@plt>
+    228b:	48 8d 3d 82 04 00 00 	lea    0x482(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2292:	e8 19 e3 ff ff       	callq  5b0 <puts@plt>
+    2297:	48 8d 3d 76 04 00 00 	lea    0x476(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    229e:	e8 0d e3 ff ff       	callq  5b0 <puts@plt>
+    22a3:	48 8d 3d 6a 04 00 00 	lea    0x46a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    22aa:	e8 01 e3 ff ff       	callq  5b0 <puts@plt>
+    22af:	48 8d 3d 5e 04 00 00 	lea    0x45e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    22b6:	e8 f5 e2 ff ff       	callq  5b0 <puts@plt>
+    22bb:	48 8d 3d 52 04 00 00 	lea    0x452(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    22c2:	e8 e9 e2 ff ff       	callq  5b0 <puts@plt>
+    22c7:	48 8d 3d 46 04 00 00 	lea    0x446(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    22ce:	e8 dd e2 ff ff       	callq  5b0 <puts@plt>
+    22d3:	48 8d 3d 3a 04 00 00 	lea    0x43a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    22da:	e8 d1 e2 ff ff       	callq  5b0 <puts@plt>
+    22df:	48 8d 3d 2e 04 00 00 	lea    0x42e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    22e6:	e8 c5 e2 ff ff       	callq  5b0 <puts@plt>
+    22eb:	48 8d 3d 22 04 00 00 	lea    0x422(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    22f2:	e8 b9 e2 ff ff       	callq  5b0 <puts@plt>
+    22f7:	48 8d 3d 16 04 00 00 	lea    0x416(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    22fe:	e8 ad e2 ff ff       	callq  5b0 <puts@plt>
+    2303:	48 8d 3d 0a 04 00 00 	lea    0x40a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    230a:	e8 a1 e2 ff ff       	callq  5b0 <puts@plt>
+    230f:	48 8d 3d fe 03 00 00 	lea    0x3fe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2316:	e8 95 e2 ff ff       	callq  5b0 <puts@plt>
+    231b:	48 8d 3d f2 03 00 00 	lea    0x3f2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2322:	e8 89 e2 ff ff       	callq  5b0 <puts@plt>
+    2327:	48 8d 3d e6 03 00 00 	lea    0x3e6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    232e:	e8 7d e2 ff ff       	callq  5b0 <puts@plt>
+    2333:	48 8d 3d da 03 00 00 	lea    0x3da(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    233a:	e8 71 e2 ff ff       	callq  5b0 <puts@plt>
+    233f:	48 8d 3d ce 03 00 00 	lea    0x3ce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2346:	e8 65 e2 ff ff       	callq  5b0 <puts@plt>
+    234b:	48 8d 3d c2 03 00 00 	lea    0x3c2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2352:	e8 59 e2 ff ff       	callq  5b0 <puts@plt>
+    2357:	48 8d 3d b6 03 00 00 	lea    0x3b6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    235e:	e8 4d e2 ff ff       	callq  5b0 <puts@plt>
+    2363:	48 8d 3d aa 03 00 00 	lea    0x3aa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    236a:	e8 41 e2 ff ff       	callq  5b0 <puts@plt>
+    236f:	48 8d 3d 9e 03 00 00 	lea    0x39e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2376:	e8 35 e2 ff ff       	callq  5b0 <puts@plt>
+    237b:	48 8d 3d 92 03 00 00 	lea    0x392(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2382:	e8 29 e2 ff ff       	callq  5b0 <puts@plt>
+    2387:	48 8d 3d 86 03 00 00 	lea    0x386(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    238e:	e8 1d e2 ff ff       	callq  5b0 <puts@plt>
+    2393:	48 8d 3d 7a 03 00 00 	lea    0x37a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    239a:	e8 11 e2 ff ff       	callq  5b0 <puts@plt>
+    239f:	48 8d 3d 6e 03 00 00 	lea    0x36e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    23a6:	e8 05 e2 ff ff       	callq  5b0 <puts@plt>
+    23ab:	48 8d 3d 62 03 00 00 	lea    0x362(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    23b2:	e8 f9 e1 ff ff       	callq  5b0 <puts@plt>
+    23b7:	48 8d 3d 56 03 00 00 	lea    0x356(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    23be:	e8 ed e1 ff ff       	callq  5b0 <puts@plt>
+    23c3:	48 8d 3d 4a 03 00 00 	lea    0x34a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    23ca:	e8 e1 e1 ff ff       	callq  5b0 <puts@plt>
+    23cf:	48 8d 3d 3e 03 00 00 	lea    0x33e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    23d6:	e8 d5 e1 ff ff       	callq  5b0 <puts@plt>
+    23db:	48 8d 3d 32 03 00 00 	lea    0x332(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    23e2:	e8 c9 e1 ff ff       	callq  5b0 <puts@plt>
+    23e7:	48 8d 3d 26 03 00 00 	lea    0x326(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    23ee:	e8 bd e1 ff ff       	callq  5b0 <puts@plt>
+    23f3:	48 8d 3d 1a 03 00 00 	lea    0x31a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    23fa:	e8 b1 e1 ff ff       	callq  5b0 <puts@plt>
+    23ff:	48 8d 3d 0e 03 00 00 	lea    0x30e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2406:	e8 a5 e1 ff ff       	callq  5b0 <puts@plt>
+    240b:	48 8d 3d 02 03 00 00 	lea    0x302(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2412:	e8 99 e1 ff ff       	callq  5b0 <puts@plt>
+    2417:	48 8d 3d f6 02 00 00 	lea    0x2f6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    241e:	e8 8d e1 ff ff       	callq  5b0 <puts@plt>
+    2423:	48 8d 3d ea 02 00 00 	lea    0x2ea(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    242a:	e8 81 e1 ff ff       	callq  5b0 <puts@plt>
+    242f:	48 8d 3d de 02 00 00 	lea    0x2de(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2436:	e8 75 e1 ff ff       	callq  5b0 <puts@plt>
+    243b:	48 8d 3d d2 02 00 00 	lea    0x2d2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2442:	e8 69 e1 ff ff       	callq  5b0 <puts@plt>
+    2447:	48 8d 3d c6 02 00 00 	lea    0x2c6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    244e:	e8 5d e1 ff ff       	callq  5b0 <puts@plt>
+    2453:	48 8d 3d ba 02 00 00 	lea    0x2ba(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    245a:	e8 51 e1 ff ff       	callq  5b0 <puts@plt>
+    245f:	48 8d 3d ae 02 00 00 	lea    0x2ae(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2466:	e8 45 e1 ff ff       	callq  5b0 <puts@plt>
+    246b:	48 8d 3d a2 02 00 00 	lea    0x2a2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2472:	e8 39 e1 ff ff       	callq  5b0 <puts@plt>
+    2477:	48 8d 3d 96 02 00 00 	lea    0x296(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    247e:	e8 2d e1 ff ff       	callq  5b0 <puts@plt>
+    2483:	48 8d 3d 8a 02 00 00 	lea    0x28a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    248a:	e8 21 e1 ff ff       	callq  5b0 <puts@plt>
+    248f:	48 8d 3d 7e 02 00 00 	lea    0x27e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2496:	e8 15 e1 ff ff       	callq  5b0 <puts@plt>
+    249b:	48 8d 3d 72 02 00 00 	lea    0x272(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    24a2:	e8 09 e1 ff ff       	callq  5b0 <puts@plt>
+    24a7:	48 8d 3d 66 02 00 00 	lea    0x266(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    24ae:	e8 fd e0 ff ff       	callq  5b0 <puts@plt>
+    24b3:	48 8d 3d 5a 02 00 00 	lea    0x25a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    24ba:	e8 f1 e0 ff ff       	callq  5b0 <puts@plt>
+    24bf:	48 8d 3d 4e 02 00 00 	lea    0x24e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    24c6:	e8 e5 e0 ff ff       	callq  5b0 <puts@plt>
+    24cb:	48 8d 3d 42 02 00 00 	lea    0x242(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    24d2:	e8 d9 e0 ff ff       	callq  5b0 <puts@plt>
+    24d7:	48 8d 3d 36 02 00 00 	lea    0x236(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    24de:	e8 cd e0 ff ff       	callq  5b0 <puts@plt>
+    24e3:	48 8d 3d 2a 02 00 00 	lea    0x22a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    24ea:	e8 c1 e0 ff ff       	callq  5b0 <puts@plt>
+    24ef:	48 8d 3d 1e 02 00 00 	lea    0x21e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    24f6:	e8 b5 e0 ff ff       	callq  5b0 <puts@plt>
+    24fb:	48 8d 3d 12 02 00 00 	lea    0x212(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2502:	e8 a9 e0 ff ff       	callq  5b0 <puts@plt>
+    2507:	48 8d 3d 06 02 00 00 	lea    0x206(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    250e:	e8 9d e0 ff ff       	callq  5b0 <puts@plt>
+    2513:	48 8d 3d fa 01 00 00 	lea    0x1fa(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    251a:	e8 91 e0 ff ff       	callq  5b0 <puts@plt>
+    251f:	48 8d 3d ee 01 00 00 	lea    0x1ee(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2526:	e8 85 e0 ff ff       	callq  5b0 <puts@plt>
+    252b:	48 8d 3d e2 01 00 00 	lea    0x1e2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2532:	e8 79 e0 ff ff       	callq  5b0 <puts@plt>
+    2537:	48 8d 3d d6 01 00 00 	lea    0x1d6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    253e:	e8 6d e0 ff ff       	callq  5b0 <puts@plt>
+    2543:	48 8d 3d ca 01 00 00 	lea    0x1ca(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    254a:	e8 61 e0 ff ff       	callq  5b0 <puts@plt>
+    254f:	48 8d 3d be 01 00 00 	lea    0x1be(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2556:	e8 55 e0 ff ff       	callq  5b0 <puts@plt>
+    255b:	48 8d 3d b2 01 00 00 	lea    0x1b2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2562:	e8 49 e0 ff ff       	callq  5b0 <puts@plt>
+    2567:	48 8d 3d a6 01 00 00 	lea    0x1a6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    256e:	e8 3d e0 ff ff       	callq  5b0 <puts@plt>
+    2573:	48 8d 3d 9a 01 00 00 	lea    0x19a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    257a:	e8 31 e0 ff ff       	callq  5b0 <puts@plt>
+    257f:	48 8d 3d 8e 01 00 00 	lea    0x18e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2586:	e8 25 e0 ff ff       	callq  5b0 <puts@plt>
+    258b:	48 8d 3d 82 01 00 00 	lea    0x182(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2592:	e8 19 e0 ff ff       	callq  5b0 <puts@plt>
+    2597:	48 8d 3d 76 01 00 00 	lea    0x176(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    259e:	e8 0d e0 ff ff       	callq  5b0 <puts@plt>
+    25a3:	48 8d 3d 6a 01 00 00 	lea    0x16a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    25aa:	e8 01 e0 ff ff       	callq  5b0 <puts@plt>
+    25af:	48 8d 3d 5e 01 00 00 	lea    0x15e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    25b6:	e8 f5 df ff ff       	callq  5b0 <puts@plt>
+    25bb:	48 8d 3d 52 01 00 00 	lea    0x152(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    25c2:	e8 e9 df ff ff       	callq  5b0 <puts@plt>
+    25c7:	48 8d 3d 46 01 00 00 	lea    0x146(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    25ce:	e8 dd df ff ff       	callq  5b0 <puts@plt>
+    25d3:	48 8d 3d 3a 01 00 00 	lea    0x13a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    25da:	e8 d1 df ff ff       	callq  5b0 <puts@plt>
+    25df:	48 8d 3d 2e 01 00 00 	lea    0x12e(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    25e6:	e8 c5 df ff ff       	callq  5b0 <puts@plt>
+    25eb:	48 8d 3d 22 01 00 00 	lea    0x122(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    25f2:	e8 b9 df ff ff       	callq  5b0 <puts@plt>
+    25f7:	48 8d 3d 16 01 00 00 	lea    0x116(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    25fe:	e8 ad df ff ff       	callq  5b0 <puts@plt>
+    2603:	48 8d 3d 0a 01 00 00 	lea    0x10a(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    260a:	e8 a1 df ff ff       	callq  5b0 <puts@plt>
+    260f:	48 8d 3d fe 00 00 00 	lea    0xfe(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2616:	e8 95 df ff ff       	callq  5b0 <puts@plt>
+    261b:	48 8d 3d f2 00 00 00 	lea    0xf2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2622:	e8 89 df ff ff       	callq  5b0 <puts@plt>
+    2627:	48 8d 3d e6 00 00 00 	lea    0xe6(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    262e:	e8 7d df ff ff       	callq  5b0 <puts@plt>
+    2633:	48 8d 3d da 00 00 00 	lea    0xda(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    263a:	e8 71 df ff ff       	callq  5b0 <puts@plt>
+    263f:	48 8d 3d ce 00 00 00 	lea    0xce(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2646:	e8 65 df ff ff       	callq  5b0 <puts@plt>
+    264b:	48 8d 3d c2 00 00 00 	lea    0xc2(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2652:	e8 59 df ff ff       	callq  5b0 <puts@plt>
+    2657:	48 83 c4 08          	add    $0x8,%rsp
+    265b:	c3                   	retq   
+
+000000000000265c <show>:
+    265c:	48 83 ec 08          	sub    $0x8,%rsp
+    2660:	48 8d 3d ad 00 00 00 	lea    0xad(%rip),%rdi        # 2714 <_IO_stdin_used+0x4>
+    2667:	e8 44 df ff ff       	callq  5b0 <puts@plt>
+    266c:	48 83 c4 08          	add    $0x8,%rsp
+    2670:	c3                   	retq   
+
+0000000000002671 <main>:
+    2671:	48 83 ec 08          	sub    $0x8,%rsp
+    2675:	b8 00 00 00 00       	mov    $0x0,%eax
+    267a:	e8 7b e0 ff ff       	callq  6fa <get_line>
+    267f:	b8 00 00 00 00       	mov    $0x0,%eax
+    2684:	48 83 c4 08          	add    $0x8,%rsp
+    2688:	c3                   	retq   
+    2689:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000002690 <__libc_csu_init>:
+    2690:	41 57                	push   %r15
+    2692:	41 56                	push   %r14
+    2694:	49 89 d7             	mov    %rdx,%r15
+    2697:	41 55                	push   %r13
+    2699:	41 54                	push   %r12
+    269b:	4c 8d 25 06 07 20 00 	lea    0x200706(%rip),%r12        # 202da8 <__frame_dummy_init_array_entry>
+    26a2:	55                   	push   %rbp
+    26a3:	48 8d 2d 06 07 20 00 	lea    0x200706(%rip),%rbp        # 202db0 <__init_array_end>
+    26aa:	53                   	push   %rbx
+    26ab:	41 89 fd             	mov    %edi,%r13d
+    26ae:	49 89 f6             	mov    %rsi,%r14
+    26b1:	4c 29 e5             	sub    %r12,%rbp
+    26b4:	48 83 ec 08          	sub    $0x8,%rsp
+    26b8:	48 c1 fd 03          	sar    $0x3,%rbp
+    26bc:	e8 bf de ff ff       	callq  580 <_init>
+    26c1:	48 85 ed             	test   %rbp,%rbp
+    26c4:	74 20                	je     26e6 <__libc_csu_init+0x56>
+    26c6:	31 db                	xor    %ebx,%ebx
+    26c8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    26cf:	00 
+    26d0:	4c 89 fa             	mov    %r15,%rdx
+    26d3:	4c 89 f6             	mov    %r14,%rsi
+    26d6:	44 89 ef             	mov    %r13d,%edi
+    26d9:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+    26dd:	48 83 c3 01          	add    $0x1,%rbx
+    26e1:	48 39 dd             	cmp    %rbx,%rbp
+    26e4:	75 ea                	jne    26d0 <__libc_csu_init+0x40>
+    26e6:	48 83 c4 08          	add    $0x8,%rsp
+    26ea:	5b                   	pop    %rbx
+    26eb:	5d                   	pop    %rbp
+    26ec:	41 5c                	pop    %r12
+    26ee:	41 5d                	pop    %r13
+    26f0:	41 5e                	pop    %r14
+    26f2:	41 5f                	pop    %r15
+    26f4:	c3                   	retq   
+    26f5:	90                   	nop
+    26f6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+    26fd:	00 00 00 
+
+0000000000002700 <__libc_csu_fini>:
+    2700:	f3 c3                	repz retq 
+
+Disassembly of section .fini:
+
+0000000000002704 <_fini>:
+    2704:	48 83 ec 08          	sub    $0x8,%rsp
+    2708:	48 83 c4 08          	add    $0x8,%rsp
+    270c:	c3                   	retq   
